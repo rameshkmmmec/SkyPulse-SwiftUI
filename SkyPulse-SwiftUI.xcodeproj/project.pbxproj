@@ -1,0 +1,554 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 110;
+	objects = {
+
+/* Begin PBXContainerItemProxy section */
+		180A9EAB3097B5D0006CF4E8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 180A9E953097B5CE006CF4E8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 180A9E9C3097B5CE006CF4E8;
+			remoteInfo = "SkyPulse-SwiftUI";
+		};
+		180A9EB53097B5D0006CF4E8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 180A9E953097B5CE006CF4E8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 180A9E9C3097B5CE006CF4E8;
+			remoteInfo = "SkyPulse-SwiftUI";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		180A9E9D3097B5CE006CF4E8 /* SkyPulse-SwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SkyPulse-SwiftUI.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		180A9EAA3097B5D0006CF4E8 /* SkyPulse-SwiftUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SkyPulse-SwiftUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		180A9EB43097B5D0006CF4E8 /* SkyPulse-SwiftUIUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SkyPulse-SwiftUIUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		180A9E9F3097B5CE006CF4E8 /* SkyPulse-SwiftUI */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "SkyPulse-SwiftUI";
+			sourceTree = "<group>";
+		};
+		180A9EAD3097B5D0006CF4E8 /* SkyPulse-SwiftUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "SkyPulse-SwiftUITests";
+			sourceTree = "<group>";
+		};
+		180A9EB73097B5D0006CF4E8 /* SkyPulse-SwiftUIUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "SkyPulse-SwiftUIUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		180A9E9A3097B5CE006CF4E8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			files = (
+			);
+		};
+		180A9EA73097B5D0006CF4E8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			files = (
+			);
+		};
+		180A9EB13097B5D0006CF4E8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			files = (
+			);
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		180A9E943097B5CE006CF4E8 = {
+			isa = PBXGroup;
+			children = (
+				180A9E9F3097B5CE006CF4E8 /* SkyPulse-SwiftUI */,
+				180A9EAD3097B5D0006CF4E8 /* SkyPulse-SwiftUITests */,
+				180A9EB73097B5D0006CF4E8 /* SkyPulse-SwiftUIUITests */,
+				180A9E9E3097B5CE006CF4E8 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		180A9E9E3097B5CE006CF4E8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				180A9E9D3097B5CE006CF4E8 /* SkyPulse-SwiftUI.app */,
+				180A9EAA3097B5D0006CF4E8 /* SkyPulse-SwiftUITests.xctest */,
+				180A9EB43097B5D0006CF4E8 /* SkyPulse-SwiftUIUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		180A9E9C3097B5CE006CF4E8 /* SkyPulse-SwiftUI */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 180A9EBC3097B5D0006CF4E8 /* Build configuration list for PBXNativeTarget "SkyPulse-SwiftUI" */;
+			buildPhases = (
+				180A9E993097B5CE006CF4E8 /* Sources */,
+				180A9E9A3097B5CE006CF4E8 /* Frameworks */,
+				180A9E9B3097B5CE006CF4E8 /* Resources */,
+			);
+			buildRules = (
+			);
+			fileSystemSynchronizedGroups = (
+				180A9E9F3097B5CE006CF4E8 /* SkyPulse-SwiftUI */,
+			);
+			name = "SkyPulse-SwiftUI";
+			productName = "SkyPulse-SwiftUI";
+			productReference = 180A9E9D3097B5CE006CF4E8 /* SkyPulse-SwiftUI.app */;
+			productType = "com.apple.product-type.application";
+		};
+		180A9EA93097B5D0006CF4E8 /* SkyPulse-SwiftUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 180A9EBF3097B5D0006CF4E8 /* Build configuration list for PBXNativeTarget "SkyPulse-SwiftUITests" */;
+			buildPhases = (
+				180A9EA63097B5D0006CF4E8 /* Sources */,
+				180A9EA73097B5D0006CF4E8 /* Frameworks */,
+				180A9EA83097B5D0006CF4E8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				180A9EAC3097B5D0006CF4E8 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				180A9EAD3097B5D0006CF4E8 /* SkyPulse-SwiftUITests */,
+			);
+			name = "SkyPulse-SwiftUITests";
+			productName = "SkyPulse-SwiftUITests";
+			productReference = 180A9EAA3097B5D0006CF4E8 /* SkyPulse-SwiftUITests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		180A9EB33097B5D0006CF4E8 /* SkyPulse-SwiftUIUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 180A9EC23097B5D0006CF4E8 /* Build configuration list for PBXNativeTarget "SkyPulse-SwiftUIUITests" */;
+			buildPhases = (
+				180A9EB03097B5D0006CF4E8 /* Sources */,
+				180A9EB13097B5D0006CF4E8 /* Frameworks */,
+				180A9EB23097B5D0006CF4E8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				180A9EB63097B5D0006CF4E8 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				180A9EB73097B5D0006CF4E8 /* SkyPulse-SwiftUIUITests */,
+			);
+			name = "SkyPulse-SwiftUIUITests";
+			productName = "SkyPulse-SwiftUIUITests";
+			productReference = 180A9EB43097B5D0006CF4E8 /* SkyPulse-SwiftUIUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		180A9E953097B5CE006CF4E8 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 2710;
+				LastUpgradeCheck = 2710;
+				TargetAttributes = {
+					180A9E9C3097B5CE006CF4E8 = {
+						CreatedOnToolsVersion = 27.1;
+					};
+					180A9EA93097B5D0006CF4E8 = {
+						CreatedOnToolsVersion = 27.1;
+						TestTargetID = 180A9E9C3097B5CE006CF4E8;
+					};
+					180A9EB33097B5D0006CF4E8 = {
+						CreatedOnToolsVersion = 27.1;
+						TestTargetID = 180A9E9C3097B5CE006CF4E8;
+					};
+				};
+			};
+			buildConfigurationList = 180A9E983097B5CE006CF4E8 /* Build configuration list for PBXProject "SkyPulse-SwiftUI" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 180A9E943097B5CE006CF4E8;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 180A9E9E3097B5CE006CF4E8 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				180A9E9C3097B5CE006CF4E8 /* SkyPulse-SwiftUI */,
+				180A9EA93097B5D0006CF4E8 /* SkyPulse-SwiftUITests */,
+				180A9EB33097B5D0006CF4E8 /* SkyPulse-SwiftUIUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		180A9E9B3097B5CE006CF4E8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			files = (
+			);
+		};
+		180A9EA83097B5D0006CF4E8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			files = (
+			);
+		};
+		180A9EB23097B5D0006CF4E8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			files = (
+			);
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		180A9E993097B5CE006CF4E8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			files = (
+			);
+		};
+		180A9EA63097B5D0006CF4E8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			files = (
+			);
+		};
+		180A9EB03097B5D0006CF4E8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			files = (
+			);
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		180A9EAC3097B5D0006CF4E8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 180A9E9C3097B5CE006CF4E8 /* SkyPulse-SwiftUI */;
+			targetProxy = 180A9EAB3097B5D0006CF4E8 /* PBXContainerItemProxy */;
+		};
+		180A9EB63097B5D0006CF4E8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 180A9E9C3097B5CE006CF4E8 /* SkyPulse-SwiftUI */;
+			targetProxy = 180A9EB53097B5D0006CF4E8 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		180A9EBA3097B5D0006CF4E8 /* Debug configuration for PBXProject "SkyPulse-SwiftUI" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = WP68QNQS7S;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 27.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		180A9EBB3097B5D0006CF4E8 /* Release configuration for PBXProject "SkyPulse-SwiftUI" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = WP68QNQS7S;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 27.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		180A9EBD3097B5D0006CF4E8 /* Debug configuration for PBXNativeTarget "SkyPulse-SwiftUI" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = WP68QNQS7S;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ramesh.SkyPulse-SwiftUI";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		180A9EBE3097B5D0006CF4E8 /* Release configuration for PBXNativeTarget "SkyPulse-SwiftUI" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = WP68QNQS7S;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ramesh.SkyPulse-SwiftUI";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		180A9EC03097B5D0006CF4E8 /* Debug configuration for PBXNativeTarget "SkyPulse-SwiftUITests" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = WP68QNQS7S;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 27.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ramesh.SkyPulse-SwiftUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SkyPulse-SwiftUI.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/SkyPulse-SwiftUI";
+			};
+			name = Debug;
+		};
+		180A9EC13097B5D0006CF4E8 /* Release configuration for PBXNativeTarget "SkyPulse-SwiftUITests" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = WP68QNQS7S;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 27.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ramesh.SkyPulse-SwiftUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SkyPulse-SwiftUI.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/SkyPulse-SwiftUI";
+			};
+			name = Release;
+		};
+		180A9EC33097B5D0006CF4E8 /* Debug configuration for PBXNativeTarget "SkyPulse-SwiftUIUITests" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = WP68QNQS7S;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ramesh.SkyPulse-SwiftUIUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "SkyPulse-SwiftUI";
+			};
+			name = Debug;
+		};
+		180A9EC43097B5D0006CF4E8 /* Release configuration for PBXNativeTarget "SkyPulse-SwiftUIUITests" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = WP68QNQS7S;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ramesh.SkyPulse-SwiftUIUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "SkyPulse-SwiftUI";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		180A9E983097B5CE006CF4E8 /* Build configuration list for PBXProject "SkyPulse-SwiftUI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				180A9EBA3097B5D0006CF4E8 /* Debug configuration for PBXProject "SkyPulse-SwiftUI" */,
+				180A9EBB3097B5D0006CF4E8 /* Release configuration for PBXProject "SkyPulse-SwiftUI" */,
+			);
+			defaultConfigurationName = Release;
+		};
+		180A9EBC3097B5D0006CF4E8 /* Build configuration list for PBXNativeTarget "SkyPulse-SwiftUI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				180A9EBD3097B5D0006CF4E8 /* Debug configuration for PBXNativeTarget "SkyPulse-SwiftUI" */,
+				180A9EBE3097B5D0006CF4E8 /* Release configuration for PBXNativeTarget "SkyPulse-SwiftUI" */,
+			);
+			defaultConfigurationName = Release;
+		};
+		180A9EBF3097B5D0006CF4E8 /* Build configuration list for PBXNativeTarget "SkyPulse-SwiftUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				180A9EC03097B5D0006CF4E8 /* Debug configuration for PBXNativeTarget "SkyPulse-SwiftUITests" */,
+				180A9EC13097B5D0006CF4E8 /* Release configuration for PBXNativeTarget "SkyPulse-SwiftUITests" */,
+			);
+			defaultConfigurationName = Release;
+		};
+		180A9EC23097B5D0006CF4E8 /* Build configuration list for PBXNativeTarget "SkyPulse-SwiftUIUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				180A9EC33097B5D0006CF4E8 /* Debug configuration for PBXNativeTarget "SkyPulse-SwiftUIUITests" */,
+				180A9EC43097B5D0006CF4E8 /* Release configuration for PBXNativeTarget "SkyPulse-SwiftUIUITests" */,
+			);
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 180A9E953097B5CE006CF4E8 /* Project object */;
+	validationLevel = 1;
+}
