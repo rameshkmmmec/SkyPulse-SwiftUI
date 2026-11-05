@@ -18,7 +18,8 @@ struct SkyPulse_SwiftUIApp: App {
                     SplashScreenView(isSplashActive: $showSplash)
                         .transition(.opacity)
                 } else {
-                    HomeView()
+                    //HomeView()
+                    HomeContainerView()
                         .transition(.opacity)
                 }
             }

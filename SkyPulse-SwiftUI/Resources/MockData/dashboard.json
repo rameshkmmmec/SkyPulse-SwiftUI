@@ -1,0 +1,247 @@
+{
+  "status": "success",
+  "api_version": "2.1.0",
+  "sidemenu": {
+    "user_profile": {
+      "user_id": "usr_98231",
+      "name": "Ramesh Kumar",
+      "subtitle": "Lead Engineer",
+      "avatar_url": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80",
+      "membership_badge": "Gold Member",
+      "profile_route": "app://profile/overview"
+    },
+    "menu_sections": [
+      {
+        "section_id": "sec_core",
+        "section_title": "Main Navigation",
+        "items": [
+          {
+            "id": "item_home",
+            "title": "Home",
+            "icon": "house.fill",
+            "route": "app://home",
+            "badge_count": 0,
+            "badge_color": null,
+            "is_enabled": true
+          },
+          {
+            "id": "item_trips",
+            "title": "My Bookings",
+            "icon": "airplane.departure",
+            "route": "app://bookings/history",
+            "badge_count": 2,
+            "badge_color": "#FF5722",
+            "is_enabled": true
+          },
+          {
+            "id": "item_wallet",
+            "title": "Wallet & Rewards",
+            "icon": "creditcard.fill",
+            "route": "app://wallet/balance",
+            "badge_count": 0,
+            "badge_color": null,
+            "is_enabled": true
+          }
+        ]
+      },
+      {
+        "section_id": "sec_settings",
+        "section_title": "Preferences & Support",
+        "items": [
+          {
+            "id": "item_alerts",
+            "title": "Notifications",
+            "icon": "bell.badge.fill",
+            "route": "app://notifications",
+            "badge_count": 4,
+            "badge_color": "#E91E63",
+            "is_enabled": true
+          },
+          {
+            "id": "item_dark_mode",
+            "title": "App Settings",
+            "icon": "gearshape.fill",
+            "route": "app://settings/appearance",
+            "badge_count": 0,
+            "badge_color": null,
+            "is_enabled": true
+          },
+          {
+            "id": "item_support",
+            "title": "Help Center",
+            "icon": "questionmark.circle.fill",
+            "route": "app://support/faq",
+            "badge_count": 0,
+            "badge_color": null,
+            "is_enabled": true
+          },
+          {
+            "id": "item_logout",
+            "title": "Sign Out",
+            "icon": "rectangle.portrait.and.arrow.right",
+            "route": "app://auth/logout",
+            "badge_count": 0,
+            "badge_color": null,
+            "is_enabled": true
+          }
+        ]
+      }
+    ],
+    "footer": {
+      "app_version": "v2.4.0 (Build 342)",
+      "terms_url": "https://example.com/terms"
+    }
+  },
+  "home_page": {
+    "page_title": "Explore & Book",
+    "theme_mode": "dark",
+    "refresh_interval_seconds": 180,
+    "modules": [
+      {
+        "module_id": "mod_hero_carousel",
+        "type": "banner_carousel",
+        "title": "Top Deals for You",
+        "order": 1,
+        "is_visible": true,
+        "layout": {
+          "aspect_ratio": "16:9",
+          "auto_scroll": true,
+          "scroll_interval_sec": 4,
+          "corner_radius": 14,
+          "padding_horizontal": 16
+        },
+        "data": [
+          {
+            "id": "promo_flight_01",
+            "title": "Fly to Dubai",
+            "subtitle": "Direct flights starting from ₹18,999",
+            "badge_text": "Limited Time",
+            "image_url": "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=900&q=80",
+            "deep_link": "app://flights/deals/dxb"
+          },
+          {
+            "id": "promo_resort_02",
+            "title": "Luxury Beach Escapes",
+            "subtitle": "Get flat 30% off on 5-star stays in Goa",
+            "badge_text": "Trending",
+            "image_url": "https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=900&q=80",
+            "deep_link": "app://hotels/deals/goa"
+          },
+          {
+            "id": "promo_mountain_03",
+            "title": "Winter in Kashmir",
+            "subtitle": "Curated holiday packages with ski pass",
+            "badge_text": "Exclusive",
+            "image_url": "https://images.unsplash.com/photo-1566837945700-30057527ade0?auto=format&fit=crop&w=900&q=80",
+            "deep_link": "app://holidays/kashmir"
+          }
+        ]
+      },
+      {
+        "module_id": "mod_quick_services",
+        "type": "grid_actions",
+        "title": "Book Services",
+        "order": 2,
+        "is_visible": true,
+        "layout": {
+          "columns": 4,
+          "item_spacing": 12,
+          "card_background": "#1E222B"
+        },
+        "data": [
+          {
+            "id": "srv_flight",
+            "title": "Flights",
+            "icon_system_name": "airplane",
+            "badge_text": "Offers",
+            "badge_bg_color": "#E53935",
+            "deep_link": "app://flights/search"
+          },
+          {
+            "id": "srv_hotels",
+            "title": "Hotels",
+            "icon_system_name": "building.2.fill",
+            "badge_text": null,
+            "badge_bg_color": null,
+            "deep_link": "app://hotels/search"
+          },
+          {
+            "id": "srv_trains",
+            "title": "Trains",
+            "icon_system_name": "tram.fill",
+            "badge_text": "IRCTC",
+            "badge_bg_color": "#FB8C00",
+            "deep_link": "app://trains/search"
+          },
+          {
+            "id": "srv_cabs",
+            "title": "Cabs",
+            "icon_system_name": "car.fill",
+            "badge_text": "Hourly",
+            "badge_bg_color": "#43A047",
+            "deep_link": "app://cabs/search"
+          }
+        ]
+      },
+      {
+        "module_id": "mod_popular_destinations",
+        "type": "horizontal_cards",
+        "title": "Popular Destinations",
+        "order": 3,
+        "is_visible": true,
+        "layout": {
+          "card_width": 220,
+          "card_height": 280,
+          "corner_radius": 12
+        },
+        "data": [
+          {
+            "id": "dest_manali",
+            "title": "Manali, HP",
+            "subtitle": "Hill Station",
+            "rating": 4.8,
+            "starting_price": "₹4,200",
+            "image_url": "https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?auto=format&fit=crop&w=600&q=80",
+            "deep_link": "app://destinations/manali"
+          },
+          {
+            "id": "dest_jaipur",
+            "title": "Jaipur, Rajasthan",
+            "subtitle": "Heritage & Forts",
+            "rating": 4.7,
+            "starting_price": "₹3,499",
+            "image_url": "https://images.unsplash.com/photo-1599661046289-e31897846e41?auto=format&fit=crop&w=600&q=80",
+            "deep_link": "app://destinations/jaipur"
+          },
+          {
+            "id": "dest_varanasi",
+            "title": "Varanasi, UP",
+            "subtitle": "Spiritual Ghats",
+            "rating": 4.9,
+            "starting_price": "₹2,100",
+            "image_url": "https://images.unsplash.com/photo-1561361513-2d000a50f0dc?auto=format&fit=crop&w=600&q=80",
+            "deep_link": "app://destinations/varanasi"
+          }
+        ]
+      },
+      {
+        "module_id": "mod_referral_cta",
+        "type": "banner_card",
+        "title": "Share & Get Cash",
+        "order": 4,
+        "is_visible": true,
+        "layout": {
+          "background_color": "#111827",
+          "accent_color": "#3B82F6"
+        },
+        "data": {
+          "headline": "Refer Friends, Earn ₹500",
+          "description": "Give your colleagues flat ₹300 off on their first booking and earn wallet credits directly.",
+          "illustration_url": "https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=500&q=80",
+          "cta_button_text": "Invite Friends",
+          "cta_deep_link": "app://referral/share"
+        }
+      }
+    ]
+  }
+}
