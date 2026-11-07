@@ -10,6 +10,7 @@ import SwiftUI
 @main
 struct SkyPulse_SwiftUIApp: App {
     @State private var showSplash: Bool = true
+    @State private var authManager = AuthManager.shared
     
     var body: some Scene {
         WindowGroup {
@@ -18,12 +19,12 @@ struct SkyPulse_SwiftUIApp: App {
                     SplashScreenView(isSplashActive: $showSplash)
                         .transition(.opacity)
                 } else {
-                    //HomeView()
                     HomeContainerView()
                         .transition(.opacity)
                 }
             }
             .animation(.easeInOut(duration: 0.3), value: showSplash)
+            .environment(authManager)
         }
     }
 }

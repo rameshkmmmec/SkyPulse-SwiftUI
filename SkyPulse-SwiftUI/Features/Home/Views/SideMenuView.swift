@@ -11,48 +11,75 @@ struct SideMenuView: View {
     
     @StateObject var viewModel: HomeViewModel
     @Binding var isSideMenu: Bool
-    
+    @Binding var showLogin: Bool
+
+    @Environment(AuthManager.self) private var auth
     
     var body: some View {
                 
+        let currentUser = self.auth.currentUser
+        let isLoggedIn = (currentUser != nil)
+        
         ZStack(alignment: .leading){
+            
+            Color(hex: "#F7FCFD")
+                    .ignoresSafeArea()
             
             ScrollView(showsIndicators: false) {
                 VStack(alignment: .leading, spacing: 16) {
                   
-                    // User Profile Header (Safe Area ke niche)
+                    // 1. header profile data
                     if let user = viewModel.dashboardData?.sidemenu.userProfile {
-                        HStack(spacing: 12) {
-                            CachedAsyncImage(url: user.avatarURL, contentMode: .fill)
-                                .frame(width: 54, height: 54)
-                                .clipShape(Circle())
+                        HStack(alignment: .top, spacing: 12) {
+                                                        
+                            if isLoggedIn {
+                                CachedAsyncImage(url: user.avatarURL, contentMode: .fill)
+                                    .frame(width: 54, height: 54)
+                                    .clipShape(Circle())
+                            } else {
+                                Image("profile")
+                                    .renderingMode(.template)
+                                    .frame(width: 54, height: 54)
+                                    .foregroundStyle(.gray)
+                            }
                             
                             VStack(alignment: .leading, spacing: 2) {
-                                Text(user.name)
-                                    .fontPoppins(size: 20, weight: .bold, color: .black)
-                                Text(user.subtitle)
-                                    .fontPoppins(size: 15, weight: .regular, color: .gray)
+                                
+                                Text(isLoggedIn ? user.name:"Sign In to SkyPulse")
+                                    .fontPoppins(size: 20, weight: .semibold, color: .black.opacity(0.75))
+                                    .frame(maxWidth: .infinity, alignment: .leading)
+
+                                Text(isLoggedIn ? "SkyElite" : "Manage trips & perks")
+                                    .fontPoppins(size: 15, weight: .medium, color: isLoggedIn ? .blue:.gray)
+                                    .frame(maxWidth: .infinity, alignment: .leading)
                             }
+                            .frame(maxWidth: .infinity, alignment: .leading)
                         }
                         .padding(.bottom, 8)
+                        .contentShape(Rectangle())
+                        .onTapGesture {
+                            showLogin = true
+                            isSideMenu = false
+                           print("test")
+                        }
                         
                         Divider()
                     }
 
-                    
+                    // 2, menu data
                     if let sideMenu = viewModel.dashboardData?.sidemenu {
+
                         LazyVStack(spacing: 25){
                             ForEach(sideMenu.menuSections) { menu in
                                 VStack(alignment: .leading, spacing: 8) {
                                     Text(menu.sectionTitle)
-                                        .fontPoppins(size: 16, weight: .semibold, color: .black)
+                                        .fontPoppins(size: 16, weight: .medium, color: .black)
                                     
-                                    menuSectionView(menuSection: menu)
+                                    menuSectionView(menuSection: menu, isLoggedIn: isLoggedIn)
                                 }
                                 
                             }
                         }
-                        
                         
                         Text(sideMenu.footer.appVersion)
                             .fontPoppins(size: 14, weight: .regular, color: .blue)
@@ -60,11 +87,10 @@ struct SideMenuView: View {
 
                     }
                 }
-                .background(.white)
+                .background(.clear)
                 .padding(.horizontal, 16)
-                .padding(.top, 56)
+                .padding(.top, 66)
                 .padding(.bottom, 34)
-                
             }
 
         }
@@ -74,15 +100,19 @@ struct SideMenuView: View {
     }
     
     @ViewBuilder
-    private func menuSectionView(menuSection: MenuSection) -> some View {
+    private func menuSectionView(menuSection: MenuSection, isLoggedIn: Bool) -> some View {
         
-        VStack(alignment: .leading, spacing: 10) {
-            ForEach(menuSection.items) { item in
-                menuItemView(item: item)
+        VStack(alignment: .leading, spacing: 0) {
+            ForEach(menuSection.items.indices, id: \.self) { index in
+                
+                let item = menuSection.items[index]
+                let shouldSkip = (item.id == "item_logout" && !isLoggedIn)
+                if !shouldSkip {
+                    menuItemView(item: item, isLast: (menuSection.items.count == index+1))
+                }
             }
         }
-        .padding(.horizontal, 10)
-        .padding(.vertical, 5)
+        .padding(.horizontal, 5)
         .frame(maxWidth: .infinity)
         .background(
             RoundedRectangle(cornerRadius: 12, style: .continuous)
@@ -95,74 +125,30 @@ struct SideMenuView: View {
     }
     
     @ViewBuilder
-    private func menuItemView(item: MenuItem) -> some View {
+    private func menuItemView(item: MenuItem, isLast:Bool) -> some View {
         
-        HStack(spacing: 5) {
-            Image(systemName: item.icon)
-                .fontPoppins(size: 18, weight: .regular, color: .black)
+        let color: Color = item.title.lowercased().contains("sign out") ? Color(hex: "#FF453A"):.black
+        
+        VStack(alignment: .leading, spacing: 12) {
+            HStack(spacing: 8) {
+                Image(systemName: item.icon)
+                    .fontPoppins(size: 20, weight: .semibold, color: color)
+                
+                Text(item.title)
+                    .fontPoppins(size: 18, weight: .regular, color: color)
+                
+                Spacer()
+            }
             
-            Text(item.title)
-                .fontPoppins(size: 18, weight: .regular, color: .black)
-            
-            Spacer()
+            Rectangle()
+                .fill(.gray.opacity(0.35))
+                .frame(height: 1)
+                .opacity(isLast ? 0.0:1.0)
         }
-        .padding(8)
+        .padding(.leading, 8)
+        .padding(.top, 16)
         .frame(maxWidth: .infinity)
+        .background(.white)
     }
 }
 
-//struct SideMenuView: View {
-//    @ObservedObject var viewModel: HomeViewModel  // Child view mein @ObservedObject use karein
-//    @Binding var isSideMenu: Bool
-//    
-//    var body: some View {
-//        ZStack(alignment: .leading) {
-//            
-//            // 1. Drawer Panel
-//            ScrollView(showsIndicators: false) {
-//                VStack(alignment: .leading, spacing: 18) {
-//                    
-//                    // User Profile Header (Safe Area ke niche)
-//                    if let user = viewModel.dashboardData?.sidemenu.userProfile {
-//                        HStack(spacing: 12) {
-//                            CachedAsyncImage(url: user.avatarURL, contentMode: .fill)
-//                                .frame(width: 48, height: 48)
-//                                .clipShape(Circle())
-//                            
-//                            VStack(alignment: .leading, spacing: 2) {
-//                                Text(user.name)
-//                                    .fontPoppins(size: 16, weight: .bold, color: .black)
-//                                Text(user.subtitle)
-//                                    .fontPoppins(size: 13, weight: .regular, color: .gray)
-//                            }
-//                        }
-//                        .padding(.bottom, 8)
-//                        
-//                        Divider()
-//                    }
-//                    
-//                    // Menu Sections
-//                    if let sideMenu = viewModel.dashboardData?.sidemenu {
-//                        LazyVStack(alignment: .leading, spacing: 20) {
-//                            ForEach(sideMenu.menuSections) { menu in
-//                                VStack(alignment: .leading, spacing: 8) {
-//                                    Text(menu.sectionTitle.uppercased())
-//                                        .fontPoppins(size: 12, weight: .semibold, color: .gray)
-//                                    
-//                                    menuSectionView(menuSection: menu)
-//                                }
-//                            }
-//                        }
-//                    }
-//                }
-//                .padding(.horizontal, 16)
-//                .padding(.top, 56) // <-- Top status bar / Notch ke liye safe space
-//                .padding(.bottom, 34) // Bottom home indicator ke liye safe space
-//            }
-//            .frame(width: UIScreen.main.bounds.width * 0.78) // Drawer width 78%
-//            .background(Color.white) // Poora white background drawer width ke andar
-//            .ignoresSafeArea()       // Background safe area tak extend hoga, par content padding se safe rahega
-//        }
-//        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
-//    }
-//}

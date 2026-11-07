@@ -11,6 +11,7 @@ struct HomeContainerView: View {
     
     @StateObject var viewModel: HomeViewModel
     @State private var isSideMenu: Bool = false
+    @State private var showLogin: Bool = false
 
     @State private var router = NavigationRouter()
     @State private var homePath = NavigationPath()
@@ -57,6 +58,9 @@ struct HomeContainerView: View {
             configureSideMenu
         }
         .ignoresSafeArea(.keyboard, edges: .bottom)
+        .customBottomSheet(isPresented: $showLogin) {
+            LoginView()
+        }
     }
     
     @ViewBuilder
@@ -71,7 +75,7 @@ struct HomeContainerView: View {
                     .onTapGesture {
                         withAnimation(.easeInOut) { isSideMenu = false }
                     }
-                SideMenuView(viewModel: viewModel, isSideMenu: $isSideMenu)
+                SideMenuView(viewModel: viewModel, isSideMenu: $isSideMenu, showLogin: $showLogin)
                     .containerRelativeFrame(.horizontal) { lenght, axis in
                         lenght * 0.8
                     }

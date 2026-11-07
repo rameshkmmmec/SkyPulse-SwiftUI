@@ -226,7 +226,7 @@ struct HomeView: View {
                     VStack(spacing: 8) {
                         ZStack(alignment: .topTrailing) {
                             Circle()
-                                .fill(Color(hex: layout.cardBackground) ?? Color.gray.opacity(0.15))
+                                .fill(Color(hex: layout.cardBackground))
                                 .frame(width: 54, height: 54)
                                 .overlay(
                                     Image(systemName: item.iconSystemName)

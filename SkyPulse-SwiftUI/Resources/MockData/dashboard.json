@@ -15,19 +15,10 @@
         "section_id": "sec_core",
         "section_title": "Main Navigation",
         "items": [
-          {
-            "id": "item_home",
-            "title": "Home",
-            "icon": "house.fill",
-            "route": "app://home",
-            "badge_count": 0,
-            "badge_color": null,
-            "is_enabled": true
-          },
-          {
+         {
             "id": "item_trips",
             "title": "My Bookings",
-            "icon": "airplane.departure",
+            "icon": "ticket",
             "route": "app://bookings/history",
             "badge_count": 2,
             "badge_color": "#FF5722",
@@ -38,6 +29,15 @@
             "title": "Wallet & Rewards",
             "icon": "creditcard.fill",
             "route": "app://wallet/balance",
+            "badge_count": 0,
+            "badge_color": null,
+            "is_enabled": true
+          },
+          {
+            "id": "item_offer",
+            "title": "Offer",
+            "icon": "tag.fill",
+            "route": "app://offer",
             "badge_count": 0,
             "badge_color": null,
             "is_enabled": true
@@ -88,7 +88,7 @@
       }
     ],
     "footer": {
-      "app_version": "v2.4.0 (Build 342)",
+      "app_version": "v1.0.0 (Build 03)",
       "terms_url": "https://example.com/terms"
     }
   },
