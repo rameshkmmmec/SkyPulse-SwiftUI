@@ -245,6 +245,7 @@ struct QuickActionItem: Codable, Identifiable {
     let badgeText: String?
     let badgeBgColor: String?
     let deepLink: String
+    var isSelected: Bool = false
 
     enum CodingKeys: String, CodingKey {
         case id, title

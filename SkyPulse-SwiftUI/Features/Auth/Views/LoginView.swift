@@ -11,12 +11,29 @@ struct LoginView: View {
     
     @StateObject private var vm: LoginViewModel
     var onCountryTap: () -> Void = {}
-
-    init() {
+    @Environment(AuthManager.self) private var auth
+    
+    var onLoginSuccess: (() -> Void)
+    
+    init(onSuccess: @escaping () -> Void) {
         _vm = StateObject(wrappedValue: LoginViewModel(emailOrMobile: ""))
+        onLoginSuccess = onSuccess
     }
     
     var body: some View {
+        VStack(alignment: .leading, spacing: 0) {
+            if vm.isPassOtpView {
+                passwordOrOtpView
+            } else{
+                emailorMobileView
+            }
+        }
+        .padding(.horizontal, 16)
+    }
+    
+    //MARK: Email or Mobile View
+    @ViewBuilder
+    private var emailorMobileView: some View {
         
         VStack(alignment: .leading, spacing: 20) {
             
@@ -26,69 +43,47 @@ struct LoginView: View {
                 .padding(.top, 16)
             
             // 2. textfields
-            SmartAuthInputField(text: $vm.emailOrMobile, selectedCountry: $vm.countryCode) {
+            SmartAuthInputField(text: $vm.emailOrMobile, selectedCountry: $vm.countryCode, isEmailMode: $vm.isEmailMode) {
                 
             }
+            
+            switchEmailorMobileLoginOption
             
             // 3. seperator view
-            HStack(alignment: .center, spacing: 10) {
-                Rectangle()
-                    .fill(.gray.opacity(0.35))
-                    .frame(height: 1)
-                Text("or")
-                    .fontWith(size: 16, weight: .regular, color: .black.opacity(0.70))
-                Rectangle()
-                    .fill(.gray.opacity(0.35))
-                    .frame(height: 1)
-            }
-            .padding(.top, 16)
-            
+            showHorizontaDivider
             
             // 4. social login view
-            HStack(alignment: .center, spacing: 0){
-                Spacer()
-                HStack(alignment: .center, spacing: 20){
-                    buttonWIthAction(icon: "google-logo") {
-                        
-                    }
-                    buttonWIthAction(icon: "facebook") {
-                        
-                    }
-                }
-                Spacer()
-            }
+            showSocialLogin
                 
             // 5. continue button view
-            Button {
-                // Action
-            } label: {
-                Text("Continue")
-                    .fontWith(size: 18, weight: .semibold, color: vm.isContinieEnabled ? .white : .black.opacity(0.3))
-                    .frame(maxWidth: .infinity)
-                    .padding(.vertical, 14)
-                    .frame(maxWidth: .infinity)
-                    .frame(height: 54)
-                    .background(
-                        RoundedRectangle(cornerRadius: 8, style: .continuous)
-                            .fill(
-                                vm.isContinieEnabled
-                                ? AnyShapeStyle(LinearGradient.skyPrimary())
-                                : AnyShapeStyle(Color(hex: "#CBCBCB"))
-                            )
-                    )
+            showButtonType(title: "Continue", isEnabled: vm.isContineuEnabled) {
+                vm.isPassOtpView = !(vm.isPassOtpView)
             }
-            .padding(.top, 20)
             
             // 6. Terms & condition view
             LegalTermsFooterView()
             
         }
-        .padding(.horizontal, 16)
+    }
+    
+    @ViewBuilder
+    private var showSocialLogin: some View {
+        HStack(alignment: .center, spacing: 0){
+            Spacer()
+            HStack(alignment: .center, spacing: 20){
+                buttonWIthAction(icon: "google-logo") {
+                    
+                }
+                buttonWIthAction(icon: "facebook") {
+                    
+                }
+            }
+            Spacer()
+        }
     }
     
     @ViewBuilder
     private func buttonWIthAction(icon: String, action: @escaping ()->Void)-> some View {
-        
         Button {
             action()
         } label: {
@@ -98,110 +93,134 @@ struct LoginView: View {
                 .frame(width: 40, height: 40)
         }
     }
-}
-
-
-struct CountryCode: Identifiable, Hashable {
-    let id = UUID()
-    let name: String
-    let flag: String
-    let dialCode: String
-}
-
-extension CountryCode {
-    static let defaultList: [CountryCode] = [
-        CountryCode(name: "India", flag: "🇮🇳", dialCode: "+91"),
-        CountryCode(name: "United States", flag: "🇺🇸", dialCode: "+1"),
-        CountryCode(name: "United Arab Emirates", flag: "🇦🇪", dialCode: "+971"),
-        CountryCode(name: "United Kingdom", flag: "🇬🇧", dialCode: "+44"),
-        CountryCode(name: "Singapore", flag: "🇸🇬", dialCode: "+65")
-    ]
-}
-
-
-struct SmartAuthInputField: View {
-    @Binding var text: String
-    @Binding var selectedCountry: CountryCode
-    var onCountryTap: () -> Void = {}
     
-    // Default me mobile dikhana hai; sirf tab email banega jab alphabets ya '@' type hon
-    private var isEmailMode: Bool {
-        let trimmed = text.trimmingCharacters(in: .whitespacesAndNewlines)
-        return trimmed.contains("@") || trimmed.contains(where: { $0.isLetter })
+    @ViewBuilder
+    private var showHorizontaDivider: some View {
+        
+        HStack(alignment: .center, spacing: 10) {
+            Rectangle()
+                .fill(.gray.opacity(0.35))
+                .frame(height: 1)
+            Text("or")
+                .fontWith(size: 16, weight: .regular, color: .black.opacity(0.70))
+            Rectangle()
+                .fill(.gray.opacity(0.35))
+                .frame(height: 1)
+        }
+        .padding(.top, 16)
     }
     
-    // UI Dimensions & Styling
-    private let cornerRadius: CGFloat = 8
-    private let boxHeight: CGFloat = 50
-    private let borderColor = Color.gray.opacity(0.35)
-    
-    var body: some View {
-        HStack(spacing: 10) {
-            
-            // MARK: - Dynamic Leading Box (Default: Country Code)
-            Group {
-                if !isEmailMode {
-                    // Default State & Numeric Input: Flag + Dial Code + Chevron
-                    Button(action: onCountryTap) {
-                        HStack(spacing: 5) {
-                            Text(selectedCountry.flag)
-                                .font(.system(size: 19))
-                            
-                            Text(selectedCountry.dialCode)
-                                .fontWith(size: 17, weight: .semibold, color: .black)
-                            
-                            Image(systemName: "chevron.down")
-                                .font(.system(size: 10, weight: .bold))
-                                .foregroundColor(.blue)
-                        }
-                        .padding(.horizontal, 10)
-                        .frame(height: boxHeight)
-                        .rectangleCard(cornerRadius: cornerRadius, fillColor: .white, borderColor: borderColor)
-                    }
-                    .buttonStyle(.plain)
-                    .transition(.asymmetric(
-                        insertion: .scale.combined(with: .opacity),
-                        removal: .opacity
-                    ))
-                } else {
-                    // Email Mode: Switches only when characters/letters appear
-                    ZStack {
-                        Image(systemName: "envelope.fill")
-                            .font(.system(size: 18))
-                            .foregroundColor(.gray)
-                    }
-                    .frame(width: 50, height: boxHeight)
-                    .rectangleCard(cornerRadius: cornerRadius, fillColor: .white, borderColor: borderColor)
-                    .transition(.asymmetric(
-                        insertion: .scale.combined(with: .opacity),
-                        removal: .opacity
-                    ))
-                }
+    @ViewBuilder
+    private var switchEmailorMobileLoginOption: some View {
+        
+        HStack(){
+            Spacer()
+            Button {
+                vm.isEmailMode = !vm.isEmailMode
+            } label: {
+                Text("Login or SignUp with \(vm.isEmailMode ? "Mobile":"Email")")
+                    .fontPoppins(size: 15, weight: .medium, color: .blue)
             }
-            .animation(.easeInOut(duration: 0.2), value: isEmailMode)
-            
-            // MARK: - Input Field
-            HStack {
-                TextField(isEmailMode ? "ENTER EMAIL ID" : "ENTER MOBILE NUMBER", text: $text)
-                    .fontWith(size: 17, weight: .semibold, color: .black)
-                    .autocorrectionDisabled()
-                    .textInputAutocapitalization(.never)
-                    .keyboardType(isEmailMode ? .emailAddress : .numberPad)
-                
-                if !text.isEmpty {
-                    Button {
-                        text = ""
-                    } label: {
-                        Image(systemName: "xmark.circle.fill")
-                            .foregroundColor(.gray.opacity(0.5))
-                    }
-                }
-            }
-            .padding(.horizontal, 14)
-            .frame(height: boxHeight)
-            .rectangleCard(cornerRadius: cornerRadius, fillColor: .white, borderColor: borderColor)
         }
     }
+
+    @ViewBuilder
+    private func showButtonType(title: String, isEnabled:Bool, action: @escaping ()->Void) -> some View {
+        Button {
+            action()
+        } label: {
+            Text(title)
+                .fontWith(size: 18, weight: .semibold, color: isEnabled ? .white : .black.opacity(0.3))
+                .padding(.vertical, 14)
+                .frame(maxWidth: .infinity)
+                .frame(height: 54)
+                .background(
+                    RoundedRectangle(cornerRadius: 8, style: .continuous)
+                        .fill(
+                            isEnabled
+                            ? AnyShapeStyle(LinearGradient.skyPrimary())
+                            : AnyShapeStyle(Color(hex: "#CBCBCB"))
+                        )
+                )
+        }
+        .padding(.top, 20)
+    }
+    
+    //MARK: Password or Otp View
+    private var passwordOrOtpView: some View {
+        
+        VStack(alignment: .leading, spacing: 20) {
+           
+            // 1. back arrow view
+            Button {
+                vm.isPassOtpView = !(vm.isPassOtpView)
+            } label: {
+                Image(systemName: "arrow.left")
+                    .fontPoppins(size: 15, weight: .semibold, color: .black)
+            }
+            
+            // 2. title view
+            Text((vm.mode == .password) ? "Please enter your password" : "Please enter otp sent to \(vm.emailOrMobile).")
+                .fontPoppins(size: 15, weight: .semibold, color: .black)
+            
+            // 3. password/otp textfield view
+            passwordOtpTextField
+            
+            // 4. switch password/otp option view
+            switchOption
+            
+            // 5. submit button view
+            showButtonType(title: "Submit", isEnabled: vm.isSubmitBtnEnabled) {
+                handleLoginDetails()
+            }
+
+            // 6. Terms & condition view
+            LegalTermsFooterView()
+        }
+    }
+    
+    private var passwordOtpTextField : some View {
+                
+        Group {
+            switch vm.mode {
+            case .password:
+                AppPasswordField(text: $vm.passOrOtp)
+            case .otp:
+                OTPVerificationField(otpCode: $vm.passOrOtp)
+            }
+        }
+        .transition(.opacity.combined(with: .move(edge: .bottom)))
+    }
+    
+    private var switchOption: some View {
+        HStack(){
+            Button {
+                
+            } label: {
+                Text("Resend Otp")
+                    .fontPoppins(size: 15, weight: .medium, color: .blue)
+                    .opacity((vm.mode == .otp) ? 1.0:0.0)
+            }
+
+            Spacer()
+            
+            Button {
+                vm.mode = (vm.mode == .otp) ? .password:.otp
+            } label: {
+                Text(vm.mode == .otp ? "Password Login or SignUp":"Otp Login or SignUp")
+                    .fontPoppins(size: 15, weight: .medium, color: .blue)
+            }
+        }
+    }
+    
+    private func handleLoginDetails(){
+        let user = User(userId: "ramesh01", name: "Ramesh Kumar", email: "rameshkmmmec@gmail.com", phone: "7355026529", address: "Mayur Vihar Phase 3", avatarURL: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80")
+        auth.login(user: user, token: "mock_jwt_token_123")
+        DispatchQueue.main.async {
+            self.onLoginSuccess()
+        }
+    }
+    
 }
 
 

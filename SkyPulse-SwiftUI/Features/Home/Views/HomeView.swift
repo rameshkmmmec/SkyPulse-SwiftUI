@@ -12,6 +12,7 @@ struct HomeView: View {
     @StateObject var vm: HomeViewModel
     var onSelectMenu: (()->Void)
     var onSelectNotify: (()->Void)
+    var onSelect: ((QuickActionItem) -> Void)
     
     var body: some View {
         
@@ -45,7 +46,9 @@ struct HomeView: View {
                                     bannarCorouselView(layout: layout, items: items)
 
                                 case .gridActions(let layout, let items):
-                                    gridActionsView(layout: layout, items: items)
+                                    gridActionsView(layout: layout, items: items) { module in
+                                        onSelect(module)
+                                    }
                                     
                                 case .horizontalCards(let layout, let items):
                                     horizontalCardsView(layout: layout, items: items)
@@ -212,7 +215,7 @@ struct HomeView: View {
     }
     
     @ViewBuilder
-    private func gridActionsView(layout:GridLayout, items:[QuickActionItem]) -> some View {
+    private func gridActionsView(layout:GridLayout, items:[QuickActionItem], handler: @escaping (QuickActionItem) -> Void) -> some View {
         
         var columns: [GridItem] {
             Array(repeating: GridItem(.flexible(), spacing: layout.itemSpacing), count: layout.columns)
@@ -222,6 +225,7 @@ struct HomeView: View {
             ForEach(items) { item in
                 Button(action: {
                     print("Tapped: \(item.deepLink)")
+                    handler(item)
                 }) {
                     VStack(spacing: 8) {
                         ZStack(alignment: .topTrailing) {

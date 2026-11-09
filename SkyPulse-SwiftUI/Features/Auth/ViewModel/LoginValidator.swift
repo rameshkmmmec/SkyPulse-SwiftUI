@@ -32,4 +32,8 @@ struct LoginValidator {
     static func isValidPassword(_ pass: String) -> Bool {
         return pass.count >= 6
     }
+    
+    static func isValidOtp(_ otp: String) -> Bool {
+        return otp.count >= 6
+    }
 }

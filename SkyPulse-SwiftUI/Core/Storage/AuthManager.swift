@@ -22,7 +22,9 @@ final class AuthManager {
     private let userKey = "cached_skypulse_user"
     private let tokenKey = "auth_access_token"
     
-    private init() {}
+    init() {
+        restoreSession()
+    }
     
     private func restoreSession() {
         
@@ -70,5 +72,6 @@ struct User: Codable, Equatable {
     let name: String
     let email:String
     let phone: String
+    let address: String
     let avatarURL: String
 }
