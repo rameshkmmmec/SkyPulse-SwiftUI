@@ -1,0 +1,673 @@
+[
+  {
+    "Id": 0,
+    "City": "New Delhi(DEL)",
+    "Type": null,
+    "Country": "India",
+    "AirportName": "Indira Gandhi International Airport",
+    "ShowCity": "DEL-New Delhi, India",
+    "CountryCounter": 8,
+    "CityName": "Delhi",
+    "nearByCity": [
+      {
+        "Id": 0,
+        "City": "Ghaziabad(HDO)",
+        "Type": null,
+        "Country": "India",
+        "AirportName": "Hindon Airport",
+        "ShowCity": "HDO-Ghaziabad, India",
+        "CountryCounter": 2,
+        "CityName": "Ghaziabad"
+      },
+      {
+        "Id": 0,
+        "City": "Aligarh(HRH)",
+        "Type": null,
+        "Country": "India",
+        "AirportName": "Aligarh Airport",
+        "ShowCity": "HRH-Aligarh, India",
+        "CountryCounter": 1,
+        "CityName": "Aligarh"
+      },
+      {
+        "Id": 0,
+        "City": "Hissar(HSS)",
+        "Type": null,
+        "Country": "India",
+        "AirportName": "Hissar Airport",
+        "ShowCity": "HSS-Hissar, India",
+        "CountryCounter": 1,
+        "CityName": "Hissar"
+      },
+      {
+        "Id": 0,
+        "City": "Noida(DXN)",
+        "Type": null,
+        "Country": "India",
+        "AirportName": "Noida International Airport",
+        "ShowCity": "DXN-Noida, India",
+        "CountryCounter": 1,
+        "CityName": "Noida"
+      }
+    ]
+  },
+  {
+    "Id": 0,
+    "City": "Mumbai(BOM)",
+    "Type": null,
+    "Country": "India",
+    "AirportName": "Chhatrapati Shivaji Maharaj International Airport",
+    "ShowCity": "BOM-Mumbai, India",
+    "CountryCounter": 6,
+    "CityName": "Mumbai",
+    "nearByCity": [
+      {
+        "Id": 0,
+        "City": "Shirdi(SAG)",
+        "Type": null,
+        "Country": "India",
+        "AirportName": "Shirdi International Airport",
+        "ShowCity": "SAG-Shirdi, India",
+        "CountryCounter": 2,
+        "CityName": "Shirdi"
+      },
+      {
+        "Id": 0,
+        "City": "Navi Mumbai(NMI)",
+        "Type": null,
+        "Country": "India",
+        "AirportName": "Navi Mumbai International Airport",
+        "ShowCity": "NMI-Navi Mumbai, India",
+        "CountryCounter": 2,
+        "CityName": "Navi Mumbai"
+      },
+      {
+        "Id": 0,
+        "City": "Pune(PNQ)",
+        "Type": null,
+        "Country": "India",
+        "AirportName": "Pune Airport",
+        "ShowCity": "PNQ-Pune, India",
+        "CountryCounter": 2,
+        "CityName": "Pune"
+      },
+      {
+        "Id": 0,
+        "City": "Daman(NMB)",
+        "Type": null,
+        "Country": "India",
+        "AirportName": "Daman Airport",
+        "ShowCity": "NMB-Daman, India",
+        "CountryCounter": 2,
+        "CityName": "Daman"
+      },
+      {
+        "Id": 0,
+        "City": "Nasik(ISK)",
+        "Type": null,
+        "Country": "India",
+        "AirportName": "Ozar Airport",
+        "ShowCity": "ISK-Nasik, India",
+        "CountryCounter": 2,
+        "CityName": "Nasik"
+      }
+    ]
+  },
+  {
+    "Id": 0,
+    "City": "Bengaluru(BLR)",
+    "Type": null,
+    "Country": "India",
+    "AirportName": "Kempegowda International Airport",
+    "ShowCity": "BLR-Bengaluru, India",
+    "CountryCounter": 2,
+    "CityName": "Bengaluru",
+    "nearByCity": [
+      {
+        "Id": 0,
+        "City": "Mysuru(MYQ)",
+        "Type": null,
+        "Country": "India",
+        "AirportName": "Mysuru Airport",
+        "ShowCity": "MYQ-Mysuru, India",
+        "CountryCounter": 2,
+        "CityName": "Mysuru"
+      },
+      {
+        "Id": 0,
+        "City": "Salem(SXV)",
+        "Type": null,
+        "Country": "India",
+        "AirportName": "Salem Airport",
+        "ShowCity": "SXV-Salem, India",
+        "CountryCounter": 2,
+        "CityName": "Salem"
+      },
+      {
+        "Id": 0,
+        "City": "Puttaparthi(PUT)",
+        "Type": null,
+        "Country": "India",
+        "AirportName": "Puttaparthi Airport",
+        "ShowCity": "PUT-Puttaparthi, India",
+        "CountryCounter": 1,
+        "CityName": "Puttaparthi"
+      }
+    ]
+  },
+  {
+    "Id": 0,
+    "City": "Kolkata(CCU)",
+    "Type": null,
+    "Country": "India",
+    "AirportName": "Netaji Subhash Chandra Bose International Airport",
+    "ShowCity": "CCU-Kolkata, India",
+    "CountryCounter": 6,
+    "CityName": "Kolkata",
+    "nearByCity": null
+  },
+  {
+    "Id": 0,
+    "City": "Chennai(MAA)",
+    "Type": null,
+    "Country": "India",
+    "AirportName": "Madras,Chennai International Airport",
+    "ShowCity": "MAA-Chennai, India",
+    "CountryCounter": 6,
+    "CityName": "Chennai",
+    "nearByCity": [
+      {
+        "Id": 0,
+        "City": "Puducherry(PNY)",
+        "Type": null,
+        "Country": "India",
+        "AirportName": "Puducherry Airport",
+        "ShowCity": "PNY-Puducherry, India",
+        "CountryCounter": 2,
+        "CityName": "Puducherry"
+      },
+      {
+        "Id": 0,
+        "City": "Nayveli(NVY)",
+        "Type": null,
+        "Country": "India",
+        "AirportName": "NVY Airport",
+        "ShowCity": "NVY-Nayveli, India",
+        "CountryCounter": 2,
+        "CityName": "Nayveli"
+      },
+      {
+        "Id": 0,
+        "City": "Tirupati(TIR)",
+        "Type": null,
+        "Country": "India",
+        "AirportName": "Tirupati Airport",
+        "ShowCity": "TIR-Tirupati, India",
+        "CountryCounter": 2,
+        "CityName": "Tirupati"
+      }
+    ]
+  },
+  {
+    "Id": 0,
+    "City": "Hyderabad(HYD)",
+    "Type": null,
+    "Country": "India",
+    "AirportName": "Rajiv Gandhi International Airport",
+    "ShowCity": "HYD-Hyderabad, India",
+    "CountryCounter": 6,
+    "CityName": "Hyderabad",
+    "nearByCity": [
+      {
+        "Id": 0,
+        "City": "Gulbarga(GBI)",
+        "Type": null,
+        "Country": "India",
+        "AirportName": "Kalaburagi Airport",
+        "ShowCity": "GBI-Gulbarga, India",
+        "CountryCounter": 2,
+        "CityName": "Gulbarga"
+      },
+      {
+        "Id": 0,
+        "City": "Kurnool(KJB)",
+        "Type": null,
+        "Country": "India",
+        "AirportName": "Kurnool Airport",
+        "ShowCity": "KJB-Kurnool, India",
+        "CountryCounter": 2,
+        "CityName": "Kurnool"
+      },
+      {
+        "Id": 0,
+        "City": "Bidar(IXX)",
+        "Type": null,
+        "Country": "India",
+        "AirportName": "Bidar Airport",
+        "ShowCity": "IXX-Bidar, India",
+        "CountryCounter": 2,
+        "CityName": "Bidar"
+      },
+      {
+        "Id": 0,
+        "City": "Warrangal(WGC)",
+        "Type": null,
+        "Country": "India",
+        "AirportName": "Warrangal Airport",
+        "ShowCity": "WGC-Warrangal, India",
+        "CountryCounter": 1,
+        "CityName": "Warrangal"
+      }
+    ]
+  },
+  {
+    "Id": 0,
+    "City": "Hyderabad(HDD)",
+    "Type": null,
+    "Country": "Pakistan",
+    "AirportName": "Hyderabad Airport",
+    "ShowCity": "HDD-Hyderabad, Pakistan",
+    "CountryCounter": 1,
+    "CityName": "Hyderabad",
+    "nearByCity": null
+  },
+  {
+    "Id": 0,
+    "City": "Thiruvananthapuram(TRV)",
+    "Type": null,
+    "Country": "India",
+    "AirportName": "Thiruvananthapuram International Airport",
+    "ShowCity": "TRV-Thiruvananthapuram, India",
+    "CountryCounter": 2,
+    "CityName": "Thiruvananthapuram",
+    "nearByCity": [
+      {
+        "Id": 0,
+        "City": "Tuticorin(TCR)",
+        "Type": null,
+        "Country": "India",
+        "AirportName": "Tuticorin Airport",
+        "ShowCity": "TCR-Tuticorin, India",
+        "CountryCounter": 2,
+        "CityName": "Tuticorin"
+      }
+    ]
+  },
+  {
+    "Id": 0,
+    "City": "Goa(GOI)",
+    "Type": null,
+    "Country": "India",
+    "AirportName": "Dabolim Goa International Airport",
+    "ShowCity": "GOI-Goa, India",
+    "CountryCounter": 8,
+    "CityName": "Goa",
+    "nearByCity": [
+      {
+        "Id": 0,
+        "City": "Goa(GOX)",
+        "Type": null,
+        "Country": "India",
+        "AirportName": "North Goa -MOPA Airport",
+        "ShowCity": "GOX-Goa, India",
+        "CountryCounter": 9,
+        "CityName": "Goa"
+      },
+      {
+        "Id": 0,
+        "City": "Kolhapur(KLH)",
+        "Type": null,
+        "Country": "India",
+        "AirportName": "Kolhapur Airport",
+        "ShowCity": "KLH-Kolhapur, India",
+        "CountryCounter": 2,
+        "CityName": "Kolhapur"
+      },
+      {
+        "Id": 0,
+        "City": "Belgaum(IXG)",
+        "Type": null,
+        "Country": "India",
+        "AirportName": "Belgaum Airport",
+        "ShowCity": "IXG-Belgaum, India",
+        "CountryCounter": 2,
+        "CityName": "Belgaum"
+      },
+      {
+        "Id": 0,
+        "City": "Hubballi(HBX)",
+        "Type": null,
+        "Country": "India",
+        "AirportName": "Hubballi Airport",
+        "ShowCity": "HBX-Hubballi, India",
+        "CountryCounter": 2,
+        "CityName": "Hubballi"
+      },
+      {
+        "Id": 0,
+        "City": "sindhudurg airport(SDW)",
+        "Type": null,
+        "Country": "India",
+        "AirportName": "sindhudurg Airport",
+        "ShowCity": "SDW-sindhudurg airport, India",
+        "CountryCounter": 1,
+        "CityName": "sindhudurg airport"
+      }
+    ]
+  },
+  {
+    "Id": 0,
+    "City": "Bangkok(DMK)",
+    "Type": null,
+    "Country": "Thailand",
+    "AirportName": "Don Mueang International Airport",
+    "ShowCity": "DMK-Bangkok, Thailand",
+    "CountryCounter": 1,
+    "CityName": "Bangkok",
+    "nearByCity": [
+      {
+        "Id": 0,
+        "City": "Bangkok(BKK)",
+        "Type": null,
+        "Country": "Thailand",
+        "AirportName": "Suvarnabhumi Airport",
+        "ShowCity": "BKK-Bangkok, Thailand",
+        "CountryCounter": 1,
+        "CityName": "Bangkok"
+      }
+    ]
+  },
+  {
+    "Id": 0,
+    "City": "Dubai(DXB)",
+    "Type": null,
+    "Country": "United Arab Emirates",
+    "AirportName": "Dubai International Airport",
+    "ShowCity": "DXB-Dubai, United Arab Emirates",
+    "CountryCounter": 2,
+    "CityName": "Dubai",
+    "nearByCity": [
+      {
+        "Id": 0,
+        "City": "Dubai (XNB)",
+        "Type": null,
+        "Country": "United Arab Emirates",
+        "AirportName": "Dubai Bus Station Airport",
+        "ShowCity": "XNB-Dubai , United Arab Emirates",
+        "CountryCounter": 1,
+        "CityName": "Dubai "
+      }
+    ]
+  },
+  {
+    "Id": 0,
+    "City": "Singapore(SIN)",
+    "Type": null,
+    "Country": "Singapore",
+    "AirportName": "Changi Airport",
+    "ShowCity": "SIN-Singapore, Singapore",
+    "CountryCounter": 8,
+    "CityName": "Singapore",
+    "nearByCity": [
+      {
+        "Id": 0,
+        "City": "Singapore(XSP)",
+        "Type": null,
+        "Country": "Singapore",
+        "AirportName": "Seletar Airport",
+        "ShowCity": "XSP-Singapore, Singapore",
+        "CountryCounter": 1,
+        "CityName": "Singapore"
+      }
+    ]
+  },
+  {
+    "Id": 0,
+    "City": "Hong Kong(HKG)",
+    "Type": null,
+    "Country": "Hong Kong",
+    "AirportName": "Hong Kong International Airport",
+    "ShowCity": "HKG-Hong Kong, Hong Kong",
+    "CountryCounter": 1,
+    "CityName": "Hong Kong",
+    "nearByCity": [
+      
+    ]
+  },
+  {
+    "Id": 0,
+    "City": "Paris(CDG)",
+    "Type": null,
+    "Country": "France",
+    "AirportName": "Charles de Gaulle Airport",
+    "ShowCity": "CDG-Paris, France",
+    "CountryCounter": 1,
+    "CityName": "Paris",
+    "nearByCity": [
+      {
+        "Id": 0,
+        "City": "Paris(PAR)",
+        "Type": null,
+        "Country": "France",
+        "AirportName": "All Airports Airport",
+        "ShowCity": "PAR-Paris, France",
+        "CountryCounter": 15,
+        "CityName": "Paris"
+      },
+      {
+        "Id": 0,
+        "City": "Paris(JPU)",
+        "Type": null,
+        "Country": "France",
+        "AirportName": "La Defense Heliport Airport",
+        "ShowCity": "JPU-Paris, France",
+        "CountryCounter": 1,
+        "CityName": "Paris"
+      },
+      {
+        "Id": 0,
+        "City": "Paris(LBG)",
+        "Type": null,
+        "Country": "France",
+        "AirportName": "Le Bourget Airport",
+        "ShowCity": "LBG-Paris, France",
+        "CountryCounter": 1,
+        "CityName": "Paris"
+      },
+      {
+        "Id": 0,
+        "City": "Paris(BVA)",
+        "Type": null,
+        "Country": "France",
+        "AirportName": " Beauvais-Tille Airport",
+        "ShowCity": "BVA-Paris, France",
+        "CountryCounter": 1,
+        "CityName": "Paris"
+      },
+      {
+        "Id": 0,
+        "City": "Paris - Massy TGV St(XJY)",
+        "Type": null,
+        "Country": "France",
+        "AirportName": "Paris - Massy TGV St Airport",
+        "ShowCity": "XJY-Paris - Massy TGV St, France",
+        "CountryCounter": 1,
+        "CityName": "Paris - Massy TGV St"
+      },
+      {
+        "Id": 0,
+        "City": "Paris - Orly Airport(ORY)",
+        "Type": null,
+        "Country": "France",
+        "AirportName": " Orly Airport",
+        "ShowCity": "ORY-Paris - Orly Airport, France",
+        "CountryCounter": 1,
+        "CityName": "Paris - Orly Airport"
+      },
+      {
+        "Id": 0,
+        "City": "Paris-Gare du Nord Rail St(XPG)",
+        "Type": null,
+        "Country": "France",
+        "AirportName": "Gare du Nord Airport",
+        "ShowCity": "XPG-Paris-Gare du Nord Rail St, France",
+        "CountryCounter": 1,
+        "CityName": "Paris-Gare du Nord Rail St"
+      },
+      {
+        "Id": 0,
+        "City": "Paris-Gare Montparnasse(XGB)",
+        "Type": null,
+        "Country": "France",
+        "AirportName": "Gare Montparnasse Airport",
+        "ShowCity": "XGB-Paris-Gare Montparnasse, France",
+        "CountryCounter": 1,
+        "CityName": "Paris-Gare Montparnasse"
+      },
+      {
+        "Id": 0,
+        "City": "Le Tourquet(LTQ)",
+        "Type": null,
+        "Country": "France",
+        "AirportName": "Le Touquet Paris Plage Airport",
+        "ShowCity": "LTQ-Le Tourquet, France",
+        "CountryCounter": 1,
+        "CityName": "Le Tourquet"
+      }
+    ]
+  },
+  {
+    "Id": 0,
+    "City": "San Francisco(SFO)",
+    "Type": null,
+    "Country": "US",
+    "AirportName": "San Francisco International Airport",
+    "ShowCity": "SFO-San Francisco, US",
+    "CountryCounter": 8,
+    "CityName": "San Francisco",
+    "nearByCity": [
+      
+    ]
+  },
+  {
+    "Id": 0,
+    "City": "Sharjah(SHJ)",
+    "Type": null,
+    "Country": "United Arab Emirates",
+    "AirportName": "Sharjah International Airport",
+    "ShowCity": "SHJ-Sharjah, United Arab Emirates",
+    "CountryCounter": 1,
+    "CityName": "Sharjah",
+    "nearByCity": [
+      
+    ]
+  },
+  {
+    "Id": 0,
+    "City": "Kathmandu(KTM)",
+    "Type": null,
+    "Country": "Nepal",
+    "AirportName": "Tribhuvan International Airport",
+    "ShowCity": "KTM-Kathmandu, Nepal",
+    "CountryCounter": 8,
+    "CityName": "Kathmandu",
+    "nearByCity": [
+      
+    ]
+  },
+  {
+    "Id": 0,
+    "City": "Doha(DOH)",
+    "Type": null,
+    "Country": "Qatar",
+    "AirportName": "Hamad International Airport",
+    "ShowCity": "DOH-Doha, Qatar",
+    "CountryCounter": 8,
+    "CityName": "Doha",
+    "nearByCity": [
+      {
+        "Id": 0,
+        "City": "Doha(DIA)",
+        "Type": null,
+        "Country": "Qatar",
+        "AirportName": "Doha International Airport",
+        "ShowCity": "DIA-Doha, Qatar",
+        "CountryCounter": 2,
+        "CityName": "Doha"
+      },
+      {
+        "Id": 0,
+        "City": "Doha(XOZ)",
+        "Type": null,
+        "Country": "Qatar",
+        "AirportName": "Doha Free Zone Airport",
+        "ShowCity": "XOZ-Doha, Qatar",
+        "CountryCounter": 1,
+        "CityName": "Doha"
+      },
+      {
+        "Id": 0,
+        "City": "Doha(IUD)",
+        "Type": null,
+        "Country": "Qatar",
+        "AirportName": "Al Udeid AB Airport",
+        "ShowCity": "IUD-Doha, Qatar",
+        "CountryCounter": 1,
+        "CityName": "Doha"
+      }
+    ]
+  },
+  {
+    "Id": 0,
+    "City": "New York(NYC)",
+    "Type": null,
+    "Country": "US",
+    "AirportName": "All Airports Airport",
+    "ShowCity": "NYC-New York, US",
+    "CountryCounter": 15,
+    "CityName": "New York",
+    "nearByCity": [
+      {
+        "Id": 0,
+        "City": "New York(JFK)",
+        "Type": null,
+        "Country": "US",
+        "AirportName": "John F. Kennedy International Airport",
+        "ShowCity": "JFK-New York, US",
+        "CountryCounter": 2,
+        "CityName": "New York"
+      },
+      {
+        "Id": 0,
+        "City": "New York(IDL)",
+        "Type": null,
+        "Country": "US",
+        "AirportName": "Idlewild Intl Airport",
+        "ShowCity": "IDL-New York, US",
+        "CountryCounter": 1,
+        "CityName": "New York"
+      },
+      {
+        "Id": 0,
+        "City": "New York(ZYP)",
+        "Type": null,
+        "Country": "US",
+        "AirportName": "Penn Station Airport",
+        "ShowCity": "ZYP-New York, US",
+        "CountryCounter": 1,
+        "CityName": "New York"
+      },
+      {
+        "Id": 0,
+        "City": "New York-LaGuardia Apt(LGA)",
+        "Type": null,
+        "Country": "US",
+        "AirportName": "LaGuardia-NY Airport",
+        "ShowCity": "LGA-New York-LaGuardia Apt, US",
+        "CountryCounter": 2,
+        "CityName": "New York-LaGuardia Apt"
+      }
+    ]
+  }
+]
+

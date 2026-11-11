@@ -36,8 +36,71 @@ struct FlightSearchView: View {
             
         }
         .navigationBarBackButtonHidden(true)
+        .toolbar(.hidden, for: .navigationBar)
         .padding(.horizontal, 16)
         .padding(.vertical, 16)
+        
+        .fullBottomSheet(item: $viewModel.activeSheet) { activeSheet in
+
+            switch activeSheet {
+                
+                // 1. source & destination city selection
+            case .sourcCity, .destCity:
+                
+                let boundType: BoundType = (viewModel.activeSheet == .sourcCity) ? .outbound:.inbound
+                CityAutoSuggestView(source: viewModel.request.sourceModel, dest: viewModel.request.destModel, boundType: boundType) { city, boundType in
+                    viewModel.updateCityModel(city: city, boundType: boundType)
+                }
+                
+            case .departureDt:
+
+                let boundType: BoundType = (viewModel.activeSheet == .sourcCity) ? .outbound:.inbound
+                CityAutoSuggestView(source: viewModel.request.sourceModel, dest: viewModel.request.destModel, boundType: boundType) { city, boundType in
+                    viewModel.updateCityModel(city: city, boundType: boundType)
+                }
+                
+            case .arrivalDt:
+
+                let boundType: BoundType = (viewModel.activeSheet == .sourcCity) ? .outbound:.inbound
+                CityAutoSuggestView(source: viewModel.request.sourceModel, dest: viewModel.request.destModel, boundType: boundType) { city, boundType in
+                    viewModel.updateCityModel(city: city, boundType: boundType)
+                }
+
+            case .sourceCity(let index):
+
+                let boundType: BoundType = (viewModel.activeSheet == .sourcCity) ? .outbound:.inbound
+                CityAutoSuggestView(source: viewModel.request.sourceModel, dest: viewModel.request.destModel, boundType: boundType) { city, boundType in
+                    viewModel.updateCityModel(city: city, boundType: boundType)
+                }
+                
+            case .destinationCity(index: let index):
+
+                let boundType: BoundType = (viewModel.activeSheet == .sourcCity) ? .outbound:.inbound
+                CityAutoSuggestView(source: viewModel.request.sourceModel, dest: viewModel.request.destModel, boundType: boundType) { city, boundType in
+                    viewModel.updateCityModel(city: city, boundType: boundType)
+                }
+
+            case .departureDate(let index):
+
+                let boundType: BoundType = (viewModel.activeSheet == .sourcCity) ? .outbound:.inbound
+                CityAutoSuggestView(source: viewModel.request.sourceModel, dest: viewModel.request.destModel, boundType: boundType) { city, boundType in
+                    viewModel.updateCityModel(city: city, boundType: boundType)
+                }
+
+            case .travelPax:
+                let boundType: BoundType = (viewModel.activeSheet == .sourcCity) ? .outbound:.inbound
+                CityAutoSuggestView(source: viewModel.request.sourceModel, dest: viewModel.request.destModel, boundType: boundType) { city, boundType in
+                    viewModel.updateCityModel(city: city, boundType: boundType)
+                }
+            case .travelClass:
+
+                let boundType: BoundType = (viewModel.activeSheet == .sourcCity) ? .outbound:.inbound
+                CityAutoSuggestView(source: viewModel.request.sourceModel, dest: viewModel.request.destModel, boundType: boundType) { city, boundType in
+                    viewModel.updateCityModel(city: city, boundType: boundType)
+                }
+            }
+            
+        }
     }
     
     private func tripSelectionView() -> some View {
@@ -47,11 +110,10 @@ struct FlightSearchView: View {
                 let isSelected = (type == viewModel.tripType)
                 
                 Text(type.rawValue)
-                    .fontPoppins(size: 12, weight: .regular, color: isSelected ? .white : .black.opacity(0.65))
+                    .fontPoppins(size: isSelected ? 14:13, weight: isSelected ? .medium:.regular, color: Color(hex: isSelected ? "#57B4C7":"#4A4A4A"))
                     .frame(maxWidth: .infinity)
                     .padding(.vertical, 12)
-                    .background(isSelected ? Color(hex: "#4791E8") : Color.clear)
-                    .cornerRadius(12)
+                    .cardShape(borderColor: isSelected ? Color(hex: "#57B4C7"):.clear, lineWidth: 2, cardType: .capsule)
                     .contentShape(Rectangle())
                     .onTapGesture {
                         withAnimation(.easeInOut(duration: 0.2)) {
@@ -60,8 +122,7 @@ struct FlightSearchView: View {
                     }
             }
         }
-        .background(Color.gray.opacity(0.1))
-        .cornerRadius(12)
+        .cardShape(borderColor: Color(hex: "#EAEAEA"), cardType: .capsule)
     }
 }
 

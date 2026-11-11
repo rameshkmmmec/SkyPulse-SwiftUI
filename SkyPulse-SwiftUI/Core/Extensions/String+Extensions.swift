@@ -18,7 +18,7 @@ extension String {
         return formatter.date(from: self)
     }
     
-    func toAnyFormat(from inputFormat: String, to outputFormat: String) -> String {
+    func toAnyDateFormat(from inputFormat: String, to outputFormat: String) -> String {
         let formatter = DateFormatter()
         formatter.locale = Locale(identifier: "en_US_POSIX")
         
@@ -32,5 +32,22 @@ extension String {
         formatter.timeZone = .current
         return formatter.string(from: date)
     }
+    
+//    func toAnyDateFormat(from fromFormat: String,to toFormat: String,locale: Locale = Locale(identifier: "en_US_POSIX")) -> String? {
+//        
+//        let inputFormatter = DateFormatter()
+//        inputFormatter.dateFormat = fromFormat
+//        inputFormatter.locale = locale
+//        
+//        guard let date = inputFormatter.date(from: self) else {
+//            return nil
+//        }
+//        
+//        let outputFormatter = DateFormatter()
+//        outputFormatter.dateFormat = toFormat
+//        outputFormatter.locale = locale
+//        
+//        return outputFormatter.string(from: date)
+//    }
 }
 

@@ -45,7 +45,7 @@ extension Font {
     }
 
     // MARK: - PostScript Name Resolver
-    private static func getPostScriptName(family: AppFont, weight: FontWeight) -> String {
+     static func getPostScriptName(family: AppFont, weight: FontWeight) -> String {
         switch family {
         case .lato:
             switch weight {

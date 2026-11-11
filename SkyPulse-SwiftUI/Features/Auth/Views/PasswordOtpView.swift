@@ -66,7 +66,7 @@ struct OTPVerificationField: View {
                         .foregroundColor(.black)
                         .frame(maxWidth: .infinity)
                         .frame(height: 52)
-                        .rectangleCard(
+                        .cardShape(
                             cornerRadius: 8,
                             fillColor: .white,
                             borderColor: isCurrentBox ? activeColor : defaultBorder,
@@ -129,6 +129,7 @@ struct AppPasswordField: View {
         }
         .padding(.horizontal, 14)
         .frame(height: boxHeight)
-        .rectangleCard(cornerRadius: cornerRadius, fillColor: .white, borderColor: borderColor)
+        .cardShape(cornerRadius: cornerRadius, fillColor: .white, borderColor: borderColor)
     }
 }
+

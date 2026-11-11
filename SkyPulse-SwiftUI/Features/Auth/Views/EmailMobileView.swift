@@ -57,7 +57,7 @@ struct SmartAuthInputField: View {
                         }
                         .padding(.horizontal, 10)
                         .frame(height: boxHeight)
-                        .rectangleCard(cornerRadius: cornerRadius, fillColor: .white, borderColor: borderColor)
+                        .cardShape(cornerRadius: cornerRadius, fillColor: .white, borderColor: borderColor)
                     }
                     .buttonStyle(.plain)
                     .transition(.asymmetric(
@@ -72,7 +72,7 @@ struct SmartAuthInputField: View {
                             .foregroundColor(.gray)
                     }
                     .frame(width: 50, height: boxHeight)
-                    .rectangleCard(cornerRadius: cornerRadius, fillColor: .white, borderColor: borderColor)
+                    .cardShape(cornerRadius: cornerRadius, fillColor: .white, borderColor: borderColor)
                     .transition(.asymmetric(
                         insertion: .scale.combined(with: .opacity),
                         removal: .opacity
@@ -100,7 +100,7 @@ struct SmartAuthInputField: View {
             }
             .padding(.horizontal, 14)
             .frame(height: boxHeight)
-            .rectangleCard(cornerRadius: cornerRadius, fillColor: .white, borderColor: borderColor)
+            .cardShape(cornerRadius: cornerRadius, fillColor: .white, borderColor: borderColor)
         }
     }
 }

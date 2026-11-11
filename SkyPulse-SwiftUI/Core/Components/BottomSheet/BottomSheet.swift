@@ -129,6 +129,7 @@ struct CustomBottomSheetModifier<SheetContent: View>: ViewModifier {
     }
 }
 
+
 extension View {
     
     // 1. Bool-based modifier
@@ -172,6 +173,20 @@ extension View {
             )
         )
     }
+    
+    func fullBottomSheet<Item: Identifiable, Content: View>(
+        item: Binding<Item?>,
+        showDragIndicator: Bool = false,
+        @ViewBuilder content: @escaping (Item) -> Content
+    ) -> some View {
+        self.modifier(
+            FullBottomSheetItemModifier(
+                item: item,
+                showDragIndicator: showDragIndicator,
+                sheetContent: content
+            )
+        )
+    }
 }
 
 struct RoundedCornerShape: Shape {
@@ -189,10 +204,7 @@ struct RoundedCornerShape: Shape {
 }
 
 
-//============================== BOTTOM SHEET CONTENT BASED ================
-
-import SwiftUI
-
+//============================== BOTTOM SHEET CONTENT BASED ================ //
 
 struct CustomBottomSheetItemModifier<Item: Identifiable, SheetContent: View>: ViewModifier {
     @Binding var item: Item?
@@ -294,3 +306,91 @@ struct CustomBottomSheetItemModifier<Item: Identifiable, SheetContent: View>: Vi
         }
     }
 }
+
+
+//============================== FULL SCREEN BOTTOM SHEET CONTENT BASED ================ //
+
+
+struct FullBottomSheetItemModifier<Item: Identifiable, SheetContent: View>: ViewModifier {
+    @Binding var item: Item?
+    var showDragIndicator: Bool = true
+    @ViewBuilder let sheetContent: (Item) -> SheetContent
+    
+    @State private var dragOffset: CGFloat = 0
+    private let springAnimation: Animation = .spring(response: 0.50, dampingFraction: 0.86)
+    
+    func body(content: Content) -> some View {
+        ZStack(alignment: .bottom) {
+            // Main Screen Content
+            content
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+            
+            // Dimmed Overlay
+            if item != nil {
+                Color.black.opacity(0.4)
+                    .ignoresSafeArea()
+                    .onTapGesture {
+                        dismiss()
+                    }
+                    .transition(.opacity)
+                    .zIndex(1)
+            }
+            
+            // Full Bottom Sheet Surface
+            if let currentItem = item {
+                VStack(spacing: 0) {
+                    // 1. Drag Indicator (Agar true hai toh aayega)
+                    if showDragIndicator {
+                        Capsule()
+                            .fill(Color.gray.opacity(0.35))
+                            .frame(width: 38, height: 5)
+                            .padding(.top, 8)
+                            .padding(.bottom, 6)
+                    }
+                    
+                    // 2. Sheet Content (Aapka UI aur List)
+                    sheetContent(currentItem)
+                        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
+                }
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .background(
+                    Color(.systemBackground)
+                        .clipShape(RoundedCornerShape(radius: 20, corners: [.topLeft, .topRight]))
+                        .ignoresSafeArea()
+                )
+                .offset(y: max(0, dragOffset))
+                .gesture(
+                    DragGesture()
+                        .onChanged { value in
+                            if value.translation.height > 0 {
+                                dragOffset = value.translation.height
+                            }
+                        }
+                        .onEnded { value in
+                            if value.translation.height > 120 {
+                                dismiss()
+                            } else {
+                                withAnimation(springAnimation) {
+                                    dragOffset = 0
+                                }
+                            }
+                        }
+                )
+                .transition(.move(edge: .bottom))
+                .zIndex(2)
+            }
+        }
+        .animation(springAnimation, value: item != nil)
+    }
+    
+    private func dismiss() {
+        withAnimation(springAnimation) {
+            item = nil
+            dragOffset = 0
+        }
+    }
+}
+
+
+
+
