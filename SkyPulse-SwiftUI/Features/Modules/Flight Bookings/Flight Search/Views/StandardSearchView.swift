@@ -184,7 +184,7 @@ struct StandardSearchView: View {
             Text((vType == .travelPax) ? "TRAVELLER" : "TRAVEL CLASS")
                 .fontPoppins(size: 13, weight: .medium, color: Color(hex: "#747474"))
             
-            Text((vType == .travelPax) ? viewModel.request.tPaxText : viewModel.request.cabin.rawValue)
+            Text((vType == .travelPax) ? viewModel.travellers : viewModel.request.cabin.rawValue)
                 .fontPoppins(size: 15, weight: .medium, color: .black)
                 .frame(maxWidth: .infinity, alignment: .leading)
         }

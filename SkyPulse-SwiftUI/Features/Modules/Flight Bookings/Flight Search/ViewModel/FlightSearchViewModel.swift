@@ -242,6 +242,13 @@ extension FlightSearchViewModel {
         request.destModel = tempSource
     }
     
+    func updatePax(adt:Int, chd:Int, inf:Int) {
+        request.adults = adt
+        request.childs = chd
+        request.infants = inf
+        activeSheet = nil
+    }
+    
     var sheetStyle: BottomSheetStyle {
         if (activeSheet == .sourcCity || activeSheet == .destCity || activeSheet == .departureDt || activeSheet == .arrivalDt){
             return .fullScreen(showDragIndicator: false)
@@ -254,5 +261,9 @@ extension FlightSearchViewModel {
     }
     var calendarTab: CalendarViewModel.CalendarTab {
         return (activeSheet == .departureDt) ? .departure:.return
+    }
+    
+    var travellers: String{
+        return request.paxCount > 1 ? "\(request.paxCount) Travellers" : "\(request.paxCount) Traveller"
     }
 }
