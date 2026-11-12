@@ -95,10 +95,11 @@ struct FlightSearchView: View {
                     viewModel.updateCityModel(city: city, boundType: boundType)
                 }
             case .travelClass:
-
-                let boundType: BoundType = (viewModel.activeSheet == .sourcCity) ? .outbound:.inbound
-                CityAutoSuggestView(source: viewModel.request.sourceModel, dest: viewModel.request.destModel, boundType: boundType) { city, boundType in
-                    viewModel.updateCityModel(city: city, boundType: boundType)
+                CabinSelectionView(viewModel: viewModel) { cabinType in
+                    if let cabin = cabinType {
+                        viewModel.request.cabin = cabin
+                    }
+                    viewModel.activeSheet = nil
                 }
             }
             
