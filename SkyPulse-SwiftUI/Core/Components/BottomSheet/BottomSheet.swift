@@ -129,6 +129,15 @@ struct CustomBottomSheetModifier<SheetContent: View>: ViewModifier {
     }
 }
 
+enum BottomSheetStyle {
+    case custom(
+        height: CGFloat? = nil,
+        animationStyle: BottomSheetAnimation = .slideUp,
+        hasTopCorners: Bool = true,
+        showDragIndicator: Bool = true
+    )
+    case fullScreen(showDragIndicator: Bool = false)
+}
 
 extension View {
     
@@ -186,6 +195,89 @@ extension View {
                 sheetContent: content
             )
         )
+    }
+    
+    // common method
+//    @ViewBuilder
+//    func appBottomSheet<Item: Identifiable, Content: View>(
+//        item: Binding<Item?>,
+//        style: BottomSheetStyle = .custom(),
+//        @ViewBuilder content: @escaping (Item) -> Content
+//    ) -> some View {
+//        switch style {
+//        case .custom(let height, let animationStyle, let hasTopCorners, let showDragIndicator):
+//            self.customBottomSheet(
+//                item: item,
+//                height: height,
+//                animationStyle: animationStyle,
+//                hasTopCorners: hasTopCorners,
+//                showDragIndicator: showDragIndicator,
+//                content: content
+//            )
+//            
+//        case .fullScreen(let showDragIndicator):
+//            self.fullBottomSheet(
+//                item: item,
+//                showDragIndicator: showDragIndicator,
+//                content: content
+//            )
+//        }
+//    }
+}
+
+extension View {
+    
+    func appBottomSheet<Item: Identifiable, Content: View>(
+        item: Binding<Item?>,
+        style: BottomSheetStyle = .custom(),
+        @ViewBuilder content: @escaping (Item) -> Content
+    ) -> some View {
+        // Sirf active style ke hisab se binding split karein taaki view tree constant rahe
+        let isFullScreen: Bool = {
+            if case .fullScreen = style { return true }
+            return false
+        }()
+        
+        let customBinding = Binding<Item?>(
+            get: { isFullScreen ? nil : item.wrappedValue },
+            set: { item.wrappedValue = $0 }
+        )
+        
+        let fullBinding = Binding<Item?>(
+            get: { isFullScreen ? item.wrappedValue : nil },
+            set: { item.wrappedValue = $0 }
+        )
+        
+        // Parameters extract karein
+        var height: CGFloat? = nil
+        var animStyle: BottomSheetAnimation = .slideUp
+        var hasTopCorners = true
+        var showIndicator = false
+        
+        switch style {
+        case .custom(let h, let anim, let corners, let indicator):
+            height = h
+            animStyle = anim
+            hasTopCorners = corners
+            showIndicator = indicator
+        case .fullScreen(let indicator):
+            showIndicator = indicator
+        }
+        
+        return self
+            .customBottomSheet(
+                item: customBinding,
+                height: height,
+                animationStyle: animStyle,
+                hasTopCorners: hasTopCorners,
+                showDragIndicator: showIndicator,
+                content: content
+            )
+            .fullBottomSheet(
+                item: fullBinding,
+                showDragIndicator: showIndicator,
+                content: content
+            )
     }
 }
 

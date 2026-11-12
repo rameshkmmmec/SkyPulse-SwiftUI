@@ -14,7 +14,6 @@ struct HomeContainerView: View {
     @State private var showLogin: Bool = false
 
     @State private var router = NavigationRouter()
-    //@State private var homePath = NavigationPath()
     @State private var homePath: [HomeRoute] = []
     
     @State private var profilePath = NavigationPath()

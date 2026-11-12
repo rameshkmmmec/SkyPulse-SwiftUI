@@ -15,7 +15,7 @@ struct SplashScreenView: View {
     var body: some View {
         ZStack {
             // Background Theme Color
-            Color.blue
+            Color(hex: "#57B4C7")
                 .ignoresSafeArea()
 
             VStack(spacing: 16) {
@@ -29,8 +29,7 @@ struct SplashScreenView: View {
                     .opacity(isAnimating ? 1.0 : 0.0)
 
                 Text("SkyPulse")
-                    .font(.system(size: 32, weight: .bold, design: .rounded))
-                    .foregroundColor(.white)
+                    .fontLato(size: 32, weight: .bold, color: .white)
                     .opacity(isAnimating ? 1.0 : 0.0)
             }
         }

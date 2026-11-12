@@ -111,6 +111,7 @@ struct StandardSearchView: View {
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             
             flightDateView(boundType: .inbound){
+                viewModel.tripType = .roundtrip
                 viewModel.activeSheet = .arrivalDt
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)

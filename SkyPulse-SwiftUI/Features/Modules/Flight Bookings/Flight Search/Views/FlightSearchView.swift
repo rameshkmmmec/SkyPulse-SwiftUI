@@ -40,31 +40,33 @@ struct FlightSearchView: View {
         .padding(.horizontal, 16)
         .padding(.vertical, 16)
         
-        .fullBottomSheet(item: $viewModel.activeSheet) { activeSheet in
+        .appBottomSheet(item: $viewModel.activeSheet, style: viewModel.sheetStyle) { activeSheet in
+            
+//        }
+//
+//        .fullBottomSheet(item: $viewModel.activeSheet) { activeSheet in
 
             switch activeSheet {
                 
                 // 1. source & destination city selection
             case .sourcCity, .destCity:
-                
                 let boundType: BoundType = (viewModel.activeSheet == .sourcCity) ? .outbound:.inbound
                 CityAutoSuggestView(source: viewModel.request.sourceModel, dest: viewModel.request.destModel, boundType: boundType) { city, boundType in
                     viewModel.updateCityModel(city: city, boundType: boundType)
                 }
                 
-            case .departureDt:
+            case .departureDt, .arrivalDt:
+                SkyPulseCalendarView(minimumDate:viewModel.minDate, departureDate: viewModel.request.departureDate.toDate(), returnDate: viewModel.request.returnDate?.toDate(), startTab: viewModel.calendarTab, tripType: viewModel.tripType){ Dep, Ret in
+                    viewModel.updateJourneyDates(dep: Dep, ret: Ret)
+                    viewModel.activeSheet = nil
+                }
 
-                let boundType: BoundType = (viewModel.activeSheet == .sourcCity) ? .outbound:.inbound
-                CityAutoSuggestView(source: viewModel.request.sourceModel, dest: viewModel.request.destModel, boundType: boundType) { city, boundType in
-                    viewModel.updateCityModel(city: city, boundType: boundType)
-                }
-                
-            case .arrivalDt:
-
-                let boundType: BoundType = (viewModel.activeSheet == .sourcCity) ? .outbound:.inbound
-                CityAutoSuggestView(source: viewModel.request.sourceModel, dest: viewModel.request.destModel, boundType: boundType) { city, boundType in
-                    viewModel.updateCityModel(city: city, boundType: boundType)
-                }
+//            case .arrivalDt:
+//
+//                let boundType: BoundType = (viewModel.activeSheet == .sourcCity) ? .outbound:.inbound
+//                CityAutoSuggestView(source: viewModel.request.sourceModel, dest: viewModel.request.destModel, boundType: boundType) { city, boundType in
+//                    viewModel.updateCityModel(city: city, boundType: boundType)
+//                }
 
             case .sourceCity(let index):
 

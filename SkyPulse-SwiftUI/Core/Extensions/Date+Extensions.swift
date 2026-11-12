@@ -17,5 +17,7 @@ extension Date {
         formatter.locale = Locale(identifier: "en_US_POSIX")
         return formatter.string(from: self)
     }
- 
+    func addingDays(_ days: Int) -> Date {
+        Calendar.current.date(byAdding: .day, value: days, to: self) ?? self
+    }
 }

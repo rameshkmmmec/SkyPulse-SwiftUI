@@ -241,4 +241,18 @@ extension FlightSearchViewModel {
         request.sourceModel = request.destModel
         request.destModel = tempSource
     }
+    
+    var sheetStyle: BottomSheetStyle {
+        if (activeSheet == .sourcCity || activeSheet == .destCity || activeSheet == .departureDt || activeSheet == .arrivalDt){
+            return .fullScreen(showDragIndicator: false)
+        }
+        return .custom(animationStyle: .slideUp, hasTopCorners: true, showDragIndicator: true)
+    }
+    
+    var minDate: Date {
+        return (activeSheet == .departureDt) ? Date():request.minimumDate
+    }
+    var calendarTab: CalendarViewModel.CalendarTab {
+        return (activeSheet == .departureDt) ? .departure:.return
+    }
 }
