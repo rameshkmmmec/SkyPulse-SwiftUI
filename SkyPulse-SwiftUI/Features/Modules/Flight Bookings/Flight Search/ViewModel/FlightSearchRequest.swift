@@ -58,13 +58,13 @@ struct FlightSearchRequest {
     }
     
     // 2. Multicity parameters
-    var multiSectors: [MultiSector] = [
-        MultiSector(source: .sCityModel, dest: .dCityModel),
-        MultiSector(source: .dCityModel, dest: nil)
+    var multiSectors: [MultiCityLeg] = [
+        MultiCityLeg(source: .sCityModel, dest: .dCityModel),
+        MultiCityLeg(source: .dCityModel, dest: nil)
     ]
     
     mutating func addSectors(at index:Int){
-        let newSector = MultiSector(source: nil, dest: nil)
+        let newSector = MultiCityLeg(source: nil, dest: nil)
         if multiSectors.count > 0 {
             multiSectors.insert(newSector, at: index)
         } else {
@@ -90,9 +90,10 @@ enum CabinType: String, CaseIterable, Identifiable {
     var id: String { rawValue }
 }
 
-struct MultiSector: Identifiable {
+struct MultiCityLeg: Identifiable {
     
     let id = UUID()
+    var title: String = "Sector"
     var source: CityModel?
     var dest: CityModel?
     var departureDate: String?

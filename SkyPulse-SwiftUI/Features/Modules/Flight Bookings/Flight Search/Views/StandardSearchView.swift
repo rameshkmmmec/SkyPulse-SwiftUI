@@ -19,10 +19,16 @@ struct StandardSearchView: View {
             
             travelDateView
             
-            travelClassWithPassenges
+            TravelClassWithPaxView(viewModel: viewModel)
             
-            searchflightView {
-                
+            SearchButtonView {
+                if viewModel.isSameCity {
+                    viewModel.shouldProceed = false
+                    viewModel.activeToast = .error("Source and Destination can not be same.")
+                }else {
+                    viewModel.activeToast = nil
+                    viewModel.shouldProceed = true
+                }
             }
             .padding(.top, 20)
         }
@@ -56,24 +62,24 @@ struct StandardSearchView: View {
     
     
     @ViewBuilder
-    private func flightCityView(boundType: BoundType, selectCity: @escaping (()-> Void) ) -> some View {
+    private func flightCityView(boundType: BoundType, selectCity: @escaping (()-> Void)) -> some View {
         
         let tuples = viewModel.cityTuple(bType: boundType)
         VStack(alignment: .leading, spacing: 0) {
             Text(tuples.0)
-                .fontPoppins(size: 13, weight: .medium, color: Color(hex: "#747474"))
+                .fontPoppins(size: 13, weight: .medium, color: .subTitleColor)
             
             Text(AttributedString.dualTextStyled(primary: StyledTextSegment(text: tuples.1, size: 18, font: .poppins, weight: .bold, color: .black), secondary: StyledTextSegment(text: " \(tuples.2)", size: 15, font: .poppins, weight: .regular, color: Color(hex: "#525252"))))
             
             Text(tuples.3)
-                .fontPoppins(size: 12, weight: .regular, color: Color(hex: "#747474"))
+                .fontPoppins(size: 12, weight: .regular, color: .subTitleColor)
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .lineLimit(2)
         }
         .padding(.leading, (boundType == .outbound) ? 10:20)
         .padding([.vertical, .trailing], 8)
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
-        .cardShape(cornerRadius: 8, fillColor: Color(hex: "#F7F7F7"), borderColor: Color(hex: "#E7E7E7"))
+        .cardShape(cornerRadius: 8, fillColor: Color(hex: "#F7F7F7"), borderColor: .borderColor)
         .contentShape(Rectangle())
         .onTapGesture {
             selectCity()
@@ -95,7 +101,7 @@ struct StandardSearchView: View {
                     .padding(.horizontal, 6)
                     .padding(.vertical, 5)
             }
-            .cardShape(cornerRadius: 6, borderColor: Color(hex: "#E7E7E7"))
+            .cardShape(cornerRadius: 6, borderColor: .borderColor)
         }
     }
     
@@ -148,7 +154,7 @@ struct StandardSearchView: View {
         .padding(.horizontal, 12)
         .padding(.vertical, 12)
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
-        .cardShape(cornerRadius: 8, fillColor: Color(hex: "#F7F7F7"), borderColor: Color(hex: "#E7E7E7"))
+        .cardShape(cornerRadius: 8, fillColor: Color(hex: "#F7F7F7"), borderColor: .borderColor)
         .contentShape(Rectangle())
         .onTapGesture {
             selectDate()
@@ -191,7 +197,7 @@ struct StandardSearchView: View {
         .padding(.horizontal, 12)
         .padding(.vertical, 12)
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
-        .cardShape(cornerRadius: 8, fillColor: Color(hex: "#F7F7F7"), borderColor: Color(hex: "#E7E7E7"))
+        .cardShape(cornerRadius: 8, fillColor: Color(hex: "#F7F7F7"), borderColor: .borderColor)
         .contentShape(Rectangle())
         .onTapGesture {
             onSelect()
@@ -211,7 +217,7 @@ struct StandardSearchView: View {
                 .frame(height: 55)
                 .background {
                     Capsule()
-                        .fill(Color(hex: "#57B4C7"))
+                        .fill(.themeColor)
                 }
         }
         .contentShape(Rectangle())

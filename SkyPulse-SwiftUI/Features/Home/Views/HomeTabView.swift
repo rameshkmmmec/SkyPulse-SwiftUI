@@ -32,7 +32,7 @@ struct HomeTabView: View {
         )
         .overlay{
             Capsule()
-                .stroke(Color(hex: "#57B4C7"), lineWidth: 1)
+                .stroke(.themeColor, lineWidth: 1)
         }
         .padding(.horizontal, 16)
     }
@@ -62,7 +62,7 @@ struct HomeTabView: View {
             .padding(8)
             .background(
                 Capsule()
-                    .fill(isSelecetd ? Color(hex: "#57B4C7") : .clear)
+                    .fill(isSelecetd ? .themeColor : .clear)
                     //.fill(isSelecetd ? .blue:.clear)
                     //.matchedGeometryEffect(id: "highlight", in: animationNamespace)
             )

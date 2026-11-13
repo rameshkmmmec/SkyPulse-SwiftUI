@@ -13,7 +13,6 @@ struct SkyPulseCalendarView: View {
     @StateObject var viewModel: CalendarViewModel
     let onConfirm: (Date, Date?) -> Void
     private let columns = Array(repeating: GridItem(.flexible(), spacing: 3), count: 7)
-    private let themeBlue = Color(hex: "#57B4C7")//Color.init(hex: "#2093EF")
     
     @State private var isReady: Bool = false
     
@@ -165,7 +164,7 @@ struct SkyPulseCalendarView: View {
             }
             .frame(height: 60)
         }
-        .background(Color(hex: "#57B4C7"))//.blue)
+        .background(.themeColor)
     }
 
     // Single Day Cell
@@ -206,7 +205,7 @@ struct SkyPulseCalendarView: View {
                 ZStack {
                     // Card Tile Background (Selected vs Normal)
                     RoundedRectangle(cornerRadius: 4)
-                        .fill(isSelected ? themeBlue : Color.white)
+                        .fill(isSelected ? .themeColor : Color.white)
                     
                     Text(day.dayNumber)
                         .fontLato(

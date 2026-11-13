@@ -7,6 +7,7 @@
 
 import Foundation
 import Combine
+import SwiftUI
 
 enum BoundType: Hashable {
     case outbound
@@ -33,9 +34,10 @@ final class FlightSearchViewModel: ObservableObject {
     @Published var request: FlightSearchRequest = FlightSearchRequest()
     @Published var tripType: TripType = .oneway
     @Published var activeSheet: ActiveSheetType? = nil
-    @Published var errorMessage: String?
 
-        
+    @Published var activeToast: ToastItem? = nil
+    @Published var shouldProceed: Bool = false
+    
     init(vm: HomeViewModel) {
         self.vm = vm
     }
@@ -64,14 +66,7 @@ final class FlightSearchViewModel: ObservableObject {
     var isSameCity: Bool {
         return (request.sourceModel.cityName == request.destModel.cityName) || (tripType == .roundtrip && request.returnDate == nil)
     }
-    var eMessage: String {
-        var msg: String = "Source and Destination can not be same."
-        if (tripType == .roundtrip) && request.returnDate == nil {
-            msg = "Please select return date."
-        }
-        return (tripType == .multicity) ? (errorMessage ?? ""):msg
-    }
-    
+
     var cityInfo: String {
         if tripType == .multicity {
             return "\(request.multiSectors.first?.source?.cityName ?? "") to \(request.multiSectors.last?.dest?.cityName ?? "")"
@@ -250,10 +245,10 @@ extension FlightSearchViewModel {
     }
     
     var sheetStyle: BottomSheetStyle {
-        if (activeSheet == .sourcCity || activeSheet == .destCity || activeSheet == .departureDt || activeSheet == .arrivalDt){
-            return .fullScreen(showDragIndicator: false)
+        if (activeSheet == .travelPax || activeSheet == .travelClass){
+            return .custom(animationStyle: .slideUp, hasTopCorners: true, showDragIndicator: true)
         }
-        return .custom(animationStyle: .slideUp, hasTopCorners: true, showDragIndicator: true)
+        return .fullScreen(showDragIndicator: false)
     }
     
     var minDate: Date {
@@ -262,8 +257,8 @@ extension FlightSearchViewModel {
     var calendarTab: CalendarViewModel.CalendarTab {
         return (activeSheet == .departureDt) ? .departure:.return
     }
-    
     var travellers: String{
         return request.paxCount > 1 ? "\(request.paxCount) Travellers" : "\(request.paxCount) Traveller"
     }
 }
+

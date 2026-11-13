@@ -70,7 +70,7 @@ struct PaxSelectionView: View {
     private var headerView: some View {
         VStack(spacing: 16) {
             HStack {
-                Text("No. of Travellers")
+                Text("Add Travellers")
                     .fontLato(size: 20, weight: .regular, color: .black)
                 Spacer()
                 Button {
@@ -79,7 +79,7 @@ struct PaxSelectionView: View {
                     }
                 } label: {
                     Text("Done")
-                        .fontLato(size: 22, weight: .regular, color: Color(hex: "#57B4C7"))
+                        .fontLato(size: 22, weight: .regular, color: .themeColor)
                 }
                 .buttonStyle(.plain)
                 .contentShape(Capsule())
@@ -87,7 +87,7 @@ struct PaxSelectionView: View {
             .padding(.top, 20)
 
             Rectangle()
-                .fill(.black.opacity(0.25))
+                .fill(.dividerColor)
                 .frame(height: 1)
         }
     }
@@ -176,9 +176,7 @@ struct PaxCounterView: View {
 
 struct BottomMailToInfo: View {
     
-    private let skyBlue = Color(hex: "#57B4C7")
     private let lightBg = Color(hex: "#F2F5FE")
-    private let borderColor = Color(hex: "#57B4C7")
     
     // Markdown link: Sirf email wala portion clickable link banega
     private let infoText: LocalizedStringKey = "For 10 passengers or above, kindly send the email on [groups@skypulse.com](mailto:groups@skypulse.com?subject=Group%20Booking%20Query)"
@@ -186,7 +184,7 @@ struct BottomMailToInfo: View {
     var body: some View {
         Text(infoText)
             .fontLato(size: 15, weight: .black, color: .black.opacity(0.85))
-            .tint(skyBlue) // Sirf clickable link (email) ka color blue hoga
+            .tint(.themeColor) // Sirf clickable link (email) ka color blue hoga
             .multilineTextAlignment(.leading)
             .lineSpacing(3)
             .frame(maxWidth: .infinity, alignment: .leading)
@@ -197,7 +195,7 @@ struct BottomMailToInfo: View {
             )
             .overlay(
                 RoundedRectangle(cornerRadius: 6, style: .continuous)
-                    .stroke(borderColor, lineWidth: 1)
+                    .stroke(.themeColor, lineWidth: 1)
             )
         
         // Tap interceptor: Link open hone ko force handle karega
