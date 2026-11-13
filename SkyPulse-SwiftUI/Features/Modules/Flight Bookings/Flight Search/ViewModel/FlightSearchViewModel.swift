@@ -33,6 +33,7 @@ final class FlightSearchViewModel: ObservableObject {
     @Published var vm: HomeViewModel
     @Published var request: FlightSearchRequest = FlightSearchRequest()
     @Published var tripType: TripType = .oneway
+    @Published var fareType: SplFareType? = nil
     @Published var activeSheet: ActiveSheetType? = nil
 
     @Published var activeToast: ToastItem? = nil
@@ -259,6 +260,13 @@ extension FlightSearchViewModel {
     }
     var travellers: String{
         return request.paxCount > 1 ? "\(request.paxCount) Travellers" : "\(request.paxCount) Traveller"
+    }
+    
+    func isSplFareSelected(fareType: SplFareType) -> Bool {
+        if let fareTyp = self.fareType {
+            return (fareTyp == fareType)
+        }
+        return false
     }
 }
 

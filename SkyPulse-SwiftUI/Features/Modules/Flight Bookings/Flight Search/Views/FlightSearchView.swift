@@ -202,10 +202,8 @@ struct SearchButtonView: View {
                 .fontPoppins(size: 18, weight: .semibold, color: .white)
                 .frame(maxWidth: .infinity)
                 .frame(height: 55)
-                .background {
-                    Capsule()
-                        .fill(.themeColor)
-                }
+                .background(LinearGradient.themeGradient)
+                .clipShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
         }
         .contentShape(Rectangle())
         .buttonStyle(.plain)

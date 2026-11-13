@@ -21,6 +21,8 @@ struct StandardSearchView: View {
             
             TravelClassWithPaxView(viewModel: viewModel)
             
+            specialFaresCardView
+            
             SearchButtonView {
                 if viewModel.isSameCity {
                     viewModel.shouldProceed = false
@@ -215,12 +217,52 @@ struct StandardSearchView: View {
                 .fontPoppins(size: 18, weight: .semibold, color: .white)
                 .frame(maxWidth: .infinity)
                 .frame(height: 55)
-                .background {
-                    Capsule()
-                        .fill(.themeColor)
-                }
+                .background(LinearGradient.themeGradient)
+                .clipShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
         }
         .contentShape(Rectangle())
         .buttonStyle(.plain)
+    }
+    
+    @ViewBuilder
+    private var specialFaresCardView: some View {
+        
+        VStack(alignment: .leading, spacing: 12) {
+            
+            Text("SPECIAL FARES")
+                .fontPoppins(size: 14, weight: .regular, color: Color(hex: "#525252"))
+            
+            let columns: [GridItem] = [
+                GridItem(.flexible(), spacing: 8),
+                GridItem(.flexible(), spacing: 8)
+            ]
+            LazyVGrid(columns: columns, alignment: .leading, spacing: 14) {
+                ForEach(SplFareType.allCases, id: \.self) { fareType in
+                    specialFareView(fare: fareType)
+                }
+            }
+        }
+        .padding([.top, .leading, .bottom], 12)
+        .padding(.trailing, 8)
+        .cardShape(cornerRadius: 8, fillColor: Color(hex: "#F7F7F7"), borderColor: .borderColor)
+    }
+    
+    @ViewBuilder
+    private func specialFareView(fare: SplFareType) -> some View {
+        
+        HStack(alignment: .center, spacing: 8) {
+            let isSelected = viewModel.isSplFareSelected(fareType: fare)
+            RadioButtonView(isSelected: isSelected, activeColor: .themeColor)
+            
+            Text(fare.rawValue)
+                .fontPoppins(size: 14, weight: .regular, color: Color(hex: "#888888"))
+        }
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .padding(8)
+        .contentShape(Capsule())
+        .cardShape(borderColor: .borderColor, cardType: .capsule)
+        .onTapGesture {
+            viewModel.fareType = fare
+        }
     }
 }

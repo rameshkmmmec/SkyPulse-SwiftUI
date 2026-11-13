@@ -90,6 +90,16 @@ enum CabinType: String, CaseIterable, Identifiable {
     var id: String { rawValue }
 }
 
+enum SplFareType: String, CaseIterable, Identifiable {
+    
+    case defence = "Defence Forces"
+    case student = "Student"
+    case scitizen = "Senior Citizen"
+    case doctorNerse = "Doctors Nurses"
+    
+    var id: String { rawValue }
+}
+
 struct MultiCityLeg: Identifiable {
     
     let id = UUID()

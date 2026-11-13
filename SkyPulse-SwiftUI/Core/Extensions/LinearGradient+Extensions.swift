@@ -37,4 +37,19 @@ extension LinearGradient {
             endPoint: endPoint
         )
     }
+    
+    @MainActor
+    static var themeGradient: LinearGradient {
+        LinearGradient(
+            colors: [
+                Color(hex: "#74CDE0"), // Light bright shade (Left)
+                Color(hex: "#57B4C7"), // Base color (Center)
+                Color(hex: "#328FA4")  // Deep rich shade (Right)
+            ],
+            startPoint: .leading,
+            endPoint: .trailing
+        )
+    }
 }
+
+
