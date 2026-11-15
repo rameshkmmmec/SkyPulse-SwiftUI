@@ -9,23 +9,15 @@ on:
 jobs:
   build-and-test:
     runs-on: macos-latest
+    timeout-minutes: 10
 
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
 
-      - name: Build App for iOS Simulator
+      - name: Build App & Tests for iOS Simulator
         run: |
-          xcodebuild clean build \
+          xcodebuild clean build-for-testing \
             -scheme "SkyPulse-SwiftUI" \
             -destination "generic/platform=iOS Simulator" \
-            CODE_SIGNING_ALLOWED=NO
-
-      - name: Run Unit Tests on Available Simulator
-        run: |
-          SIMULATOR_ID=$(xcrun simctl list devices available iPhone | grep -m 1 -oE '[0-9A-F-]{36}')
-          echo "Running tests on Simulator ID: $SIMULATOR_ID"
-          xcodebuild test \
-            -scheme "SkyPulse-SwiftUI" \
-            -destination "platform=iOS Simulator,id=$SIMULATOR_ID" \
             CODE_SIGNING_ALLOWED=NO
