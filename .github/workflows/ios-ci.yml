@@ -1,13 +1,14 @@
-cat << 'EOF' > .github/workflows/ios-ci.yml
 name: iOS CI/CD Pipeline
 
 on:
   push:
-    branches: [ main ]
+    branches:
+      - main
     tags:
-      - 'v*'
+      - "v*"
   pull_request:
-    branches: [ main ]
+    branches:
+      - main
 
 permissions:
   contents: write
@@ -43,4 +44,3 @@ jobs:
         with:
           files: release-artifacts/SkyPulse-SwiftUI-Simulator.zip
           generate_release_notes: true
-EOF
