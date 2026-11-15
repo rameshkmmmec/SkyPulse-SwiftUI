@@ -1,13 +1,20 @@
-name: iOS CI Build & Test
+cat << 'EOF' > .github/workflows/ios-ci.yml
+name: iOS CI/CD Pipeline
 
 on:
   push:
     branches: [ main ]
+    tags:
+      - 'v*'
   pull_request:
     branches: [ main ]
 
+permissions:
+  contents: write
+
 jobs:
   build-and-test:
+    name: CI - Build & Test
     runs-on: macos-latest
     timeout-minutes: 10
 
@@ -20,4 +27,20 @@ jobs:
           xcodebuild clean build-for-testing \
             -scheme "SkyPulse-SwiftUI" \
             -destination "generic/platform=iOS Simulator" \
+            -derivedDataPath ./DerivedData \
             CODE_SIGNING_ALLOWED=NO
+
+      - name: Package Simulator App Artifact
+        if: startsWith(github.ref, 'refs/tags/v')
+        run: |
+          mkdir -p release-artifacts
+          APP_PATH=$(find ./DerivedData -name "SkyPulse-SwiftUI.app" | head -n 1)
+          ditto -c -k --sequesterRsrc --keepParent "$APP_PATH" "release-artifacts/SkyPulse-SwiftUI-Simulator.zip"
+
+      - name: CD - Publish GitHub Release
+        if: startsWith(github.ref, 'refs/tags/v')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: release-artifacts/SkyPulse-SwiftUI-Simulator.zip
+          generate_release_notes: true
+EOF
